@@ -12,6 +12,11 @@
     "react-hook-form": "^7.20.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+<<<<<<< HEAD
+=======
+    "sass": "^1.43.5",
+    "react-toast": "^1.0.3",
+>>>>>>> ff41e68ce9a68583a7f8fc2a4dd7ff5ba5f8ba89
     "swiper": "^7.3.1",
     "web-vitals": "^1.1.2"
   },

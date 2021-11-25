@@ -18,7 +18,7 @@ function MiniCard(props) {
   };
 
   return (
-    <div className="mini-card" key={props.event.id}>
+    <div className="div-cat1" key={props.event.id}>
       <div
         id="favorite"
         className={isFavorite ? "isFavorite" : "notFavorite"}
@@ -26,12 +26,7 @@ function MiniCard(props) {
       ></div>
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" width="350" height="200" />
-      <div className="card-locale">
-        {props.event._embedded.venues[0].address.line1} <br />
-        {props.event._embedded.venues[0].address.line2}
-        <br />
-      </div>
+      <img src={props.event.images[0].url} alt="" width="350" height="200" />    
       <div className="card-time">
         {props.event.dates.start.localDate} <br />
         {props.event.dates.start.localTime}
