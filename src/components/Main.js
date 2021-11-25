@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import CardDetails from './CardDetails';
 
+
 function Main() {
   const { 
     register, 
@@ -25,9 +26,10 @@ function Main() {
 
         
       <button type="submit">Enter</button>
+      console.log(resp)
       <CardDetails />
-      
     </form>
+   
 
     
   );
