@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../style/LandingPage.css";
 import BigCard from "./BigCard";
 import axios from "axios";
+import Favorites from "./Favorites";
 
 const LandingPage = () => {
   const [miniList, setMiniList] = useState([]);
@@ -18,6 +19,7 @@ const LandingPage = () => {
   }, []);
   return (
     <>
+      <Favorites />
       <h1>hello</h1>
       <div>
         {miniList &&

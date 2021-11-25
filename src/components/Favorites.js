@@ -1,20 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import "../style/Favorites.css";
+import star from "../images/favourite.png";
+import arrow from "../images/arrow.png";
 
 function Favorites() {
   return (
     <div>
-      <header>
-        <button className="back-button">
-          <NavLink to={`/events`} className="">
-            {" "}
-            Arrow Symbol
-          </NavLink>
-          <div className="favorites-symbol">
-            <div>star symbol</div>
-            <h2 className="favorites-title">Your saved Events:</h2>
+      <header className="fav-header">
+        <div className="container-header">
+          <button className="back-button">
+            <img src={arrow} alt="back-button" />
+          </button>
+          <div className="container-favorites">
+            <img src={star} alt="star" width="20px" />
+            <p className="favorites-title">Your saved Events:</p>
           </div>
-        </button>
+        </div>{" "}
       </header>
     </div>
   );
