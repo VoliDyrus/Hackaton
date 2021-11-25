@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/LandingPage.css";
-import MiniCard from "./MiniCard";
+import BigCard from "./BigCard";
 import axios from "axios";
 
 const LandingPage = () => {
@@ -21,7 +21,7 @@ const LandingPage = () => {
       <h1>hello</h1>
       <div>
         {miniList &&
-          miniList.map((event) => <MiniCard key={event.id} event={event} />)}
+          miniList.map((event) => <BigCard key={event.id} event={event} />)}
       </div>
     </>
   );
