@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { countriesCode } from "../data/countriesData";
+import "../style/CardDetails.css";
 
 function CountrySearch() {
   const [filterType, setFilterType] = useState("");
@@ -47,6 +48,7 @@ function CountrySearch() {
                 console.log(e.target.value);
               }}
               data-code="code-test"
+              className="search-bar"
             />
             <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
               {countriesCode
