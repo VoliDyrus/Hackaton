@@ -25,19 +25,20 @@
   );
   border-top-left-radius: 100px 40px;
   border-top-right-radius: 100px 40px;
-  transition: 0.5s;
+  /*transition: 0.5s;
   transform: translateY(83%);
 }
 .slider:hover {
   transform: translateY(40%);
 }
-
+*/
+}
 .slider-content {
   width: 30ch;
   right: calc(50% - 15ch);
-  top: calc(30% - 15ch);
   position: absolute;
   text-align: center;
+  padding-top: 10%;
 }
 
 .search-bar {
@@ -53,7 +54,6 @@
   height: 30px;
   background: url("../assets/search.png") no-repeat center;
   background-size: contain;
-  position: absolute;
   top: 43px;
   border: 0;
 }

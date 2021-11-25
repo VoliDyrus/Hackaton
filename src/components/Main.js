@@ -41,9 +41,9 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
-          console.log(dataFinal);
           setGeneralEvents((prevList) => {
             const newList = [...prevList, dataFinal];
+            console.log(newList);
             return newList;
           });
         }
@@ -68,18 +68,20 @@ function Main() {
 
   return (
     <>
-      <div>
-        {generalEvents.length > 0 &&
-          generalEvents.map((genre) => (
-            <>
-              {genre.map((event) => (
-                <MiniCard key={event.id} event={event} />
-              ))}
-              <br />
-            </>
-          ))}
+      <div className="container-main">
+        <div className="wrapper-main">
+          {generalEvents.length > 0 &&
+            generalEvents.map((genre) => (
+              <>
+                {genre.map((event) => (
+                  <MiniCard key={event.id} event={event} />
+                ))}
+                <br />
+              </>
+            ))}
+          <CountrySearch />
+        </div>
       </div>
-      <CountrySearch />
     </>
   );
 }
