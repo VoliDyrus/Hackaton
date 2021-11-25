@@ -54,6 +54,7 @@ function Main() {
   }
 
   useEffect(() => {
+    setGeneralEvents([]);
     if (selectedCountry && displayGenres.length > 0) {
       displayGenres.forEach((genre) => {
         getEvents(selectedCountry, genre.name);
@@ -63,12 +64,12 @@ function Main() {
         getEvents("Great Britain", genre.name);
       });
     }
-  }, [displayGenres, selectedCountry]);
+  }, [selectedCountry]);
 
   return (
     <>
       <div>
-        {generalEvents.length > 4 &&
+        {generalEvents.length > 0 &&
           generalEvents.map((genre) => (
             <>
               {genre.map((event) => (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { countriesCode } from "../data/countriesData";
@@ -32,13 +32,20 @@ function CountrySearch() {
             <strong>Select your Country</strong>
           </h2>
           <br />
+          {(error && (
+            <span style={{ color: "red" }}>Country is not valid</span>
+          )) ||
+            " "}
           <form onSubmit={handleSubmit}>
             <input
               type="text"
               list="country-list"
               name="country"
               id="country"
-              onChange={(e) => console.log(e.target.value)}
+              onChange={(e) => {
+                setError(false);
+                console.log(e.target.value);
+              }}
               data-code="code-test"
             />
             <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
@@ -48,9 +55,6 @@ function CountrySearch() {
                   <option key={country.code} value={country.name} />
                 ))}
             </datalist>
-            {error && (
-              <span style={{ color: "red" }}>Country is not valid</span>
-            )}
             <input type="submit" value="Search" className="slider-search-btn" />
           </form>
         </div>
