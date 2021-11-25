@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CountrySearch from "./components/CountrySearch";
 
+import Landing from "./components/FirstLanding";
 import Main from "./components/Main";
 import { GenresContextProvider } from "./contexts/GenresContext";
 
@@ -10,8 +10,8 @@ function App() {
     <GenresContextProvider>
       <Router>
         <Routes>
-          <Route path="/*" element={<Main />} />
-          <Route path="/welcome/" component={<Main />} />
+          <Route path="/*" element={<Landing />} />
+          <Route path="/welcome/:country" element={<Main />} />
         </Routes>
       </Router>
     </GenresContextProvider>

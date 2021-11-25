@@ -4,7 +4,7 @@ function MiniCard(props) {
     <div>
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" />
+      <img src={props.event.images[0].url} alt="" width="350" height="200" />
       <div className="card-locale">
         {props.event._embedded.venues[0].address.line1} <br />
         {props.event._embedded.venues[0].address.line2}{" "}
