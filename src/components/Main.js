@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import GenresContext from "../contexts/GenresContext";
+import MiniCard from "./MiniCard";
+
+import "../style/LandingPage.css";
 
 const countriesCode = [
   { name: "Great Britain", code: "GB" },
@@ -63,11 +66,9 @@ function Main() {
       {generalEvents.length > 4 &&
         generalEvents.map((genre) => (
           <>
-            <div>
-              {genre.map((elt) => (
-                <p>{elt.name}</p>
-              ))}
-            </div>
+            {genre.map((event) => (
+              <MiniCard key={event.id} event={event} />
+            ))}
             <br />
           </>
         ))}
