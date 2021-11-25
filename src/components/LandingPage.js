@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useParams } from "react-router";
+
 import "../style/LandingPage.css";
 import MiniCard from "./MiniCard";
-import axios from "axios";
+
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.scss";
 import SwiperCore, { Navigation } from "swiper";
@@ -9,25 +11,15 @@ import "swiper/modules/navigation/navigation.scss";
 
 SwiperCore.use([Navigation]);
 
-const LandingPage = () => {
-  const [miniList, setMiniList] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios(
-        `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=GB&size=10&apikey=${process.env.REACT_APP_API_KEY}`
-      );
-      console.log(response.data._embedded.events);
-      setMiniList(response.data._embedded.events);
-    };
-    fetchData();
-  }, []);
+const LandingPage = ({ event }) => {
+  const params = useParams();
+  const selectedCountry = params.country;
   return (
     <section className="total-container">
-      <div className="container">
+      <div className="container-top">
         <div className="box1">
           <h3> Welcome Vania </h3>
-          <p>Country </p>
+          <p>{selectedCountry}</p>
         </div>
         <div className="box2"> Moon / Star </div>
       </div>
@@ -46,11 +38,10 @@ const LandingPage = () => {
             }}
           >
             <div className="swiper-items">
-              {miniList &&
-                miniList.map((event) => (
+              {event &&
+                event.map((event) => (
                   <SwiperSlide>
                     <li>
-                      {" "}
                       <MiniCard key={event.id} event={event} />
                     </li>
                   </SwiperSlide>
@@ -60,7 +51,7 @@ const LandingPage = () => {
         </ul>
       </div>
 
-      <div className="container2">
+      <div className="container-bottom">
         <div className="country"> search country</div>
         <div className="categories"> search category</div>
       </div>

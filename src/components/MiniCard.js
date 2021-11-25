@@ -1,5 +1,5 @@
 import React from "react";
-import star from "../images/favourite.png";
+//import star from "../images/favourite.png";
 
 function MiniCard(props) {
   return (
@@ -14,12 +14,14 @@ function MiniCard(props) {
 
       {/* <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div> */}
+
       <img
         src={props.event.images[0].url}
         alt=""
         width="100px"
         height="100px"
       />
+
       {/* <div className="card-locale">
         {props.event._embedded.venues[0].address.line1} <br />
         {props.event._embedded.venues[0].address.line2}

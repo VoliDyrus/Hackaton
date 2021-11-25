@@ -5,7 +5,7 @@ import axios from "axios";
 import { countriesCode } from "../data/countriesData";
 import GenresContext from "../contexts/GenresContext";
 
-import BigCard from "./BigCard";
+import LandingPage from "./LandingPage";
 
 import "../style/LandingPage.css";
 
@@ -40,10 +40,12 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
-          setGeneralEvents((prevList) => {
-            const newList = [...prevList, dataFinal];
-            return newList;
-          });
+          if (dataFinal) {
+            setGeneralEvents((prevList) => {
+              const newList = [...prevList, dataFinal];
+              return newList;
+            });
+          }
         }
       } catch (error) {
         console.log(error);
@@ -65,13 +67,11 @@ function Main() {
 
   return (
     <div>
-      {generalEvents.length > 4 &&
+      {generalEvents.length > 0 &&
         generalEvents.map((genre) => (
           <>
-            {genre.map((event) => (
-              <BigCard key={event.id} event={event} />
-            ))}
-            <br />
+            {genre[0].classifications[0].genre.name}
+            <LandingPage event={genre} country={selectedCountry} />
           </>
         ))}
     </div>
