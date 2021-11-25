@@ -22,7 +22,8 @@ function MiniCard(props) {
       />
       {/* <div className="card-locale">
         {props.event._embedded.venues[0].address.line1} <br />
-        {props.event._embedded.venues[0].address.line2}{" "}
+        {props.event._embedded.venues[0].address.line2}
+        <br />
       </div>
       <div className="card-time">
         {props.event.dates.start.localDate} <br />
