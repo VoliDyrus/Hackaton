@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 
-import { countriesCode } from "../data/countriesData";
-import GenresContext from "../contexts/GenresContext";
-
 import MiniCard from "./MiniCard";
+import CountrySearch from "./CountrySearch";
+import GenresContext from "../contexts/GenresContext";
+import { countriesCode } from "../data/countriesData";
 
 import "../style/LandingPage.css";
-import CountrySearch from "./CountrySearch";
 
 function Main() {
   const params = useParams();
