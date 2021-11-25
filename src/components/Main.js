@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 
-import { countriesCode } from "../data/countriesData";
+import LandingPage from "./LandingPage";
+import CountrySearch from "./CountrySearch";
 import GenresContext from "../contexts/GenresContext";
-
-import MiniCard from "./MiniCard";
+import { countriesCode } from "../data/countriesData";
 
 import "../style/LandingPage.css";
-import CountrySearch from "./CountrySearch";
 
 function Main() {
   const params = useParams();
@@ -41,11 +40,14 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
-          console.log(dataFinal);
-          setGeneralEvents((prevList) => {
-            const newList = [...prevList, dataFinal];
-            return newList;
-          });
+
+          if (dataFinal) {
+            setGeneralEvents((prevList) => {
+              const newList = [...prevList, dataFinal];
+              console.log(newList);
+              return newList;
+            });
+          }
         }
       } catch (error) {
         console.log(error);
@@ -68,18 +70,18 @@ function Main() {
 
   return (
     <>
-      <div>
-        {generalEvents.length > 0 &&
-          generalEvents.map((genre) => (
-            <>
-              {genre.map((event) => (
-                <MiniCard key={event.id} event={event} />
-              ))}
-              <br />
-            </>
-          ))}
+      <div className="container-main">
+        <div className="wrapper-main">
+          {generalEvents.length > 0 &&
+            generalEvents.map((genre) => (
+              <>
+                {genre[0].classifications[0].genre.name}
+                <LandingPage event={genre} country={selectedCountry} />
+              </>
+            ))}
+          <CountrySearch />
+        </div>
       </div>
-      <CountrySearch />
     </>
   );
 }

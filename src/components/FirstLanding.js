@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { countriesCode } from "../data/countriesData";
+import "../style/LandingPage.css"
+import logo from "../images/musicMeet.png";
 
 function Landing() {
   const [filterType, setFilterType] = useState("");
@@ -27,47 +28,65 @@ function Landing() {
     }
   }
 
+  function handleRedirect (url) {
+    return(
+        window.open(url)
+    )
+  }
+
   return (
-    <div>
-      <div className="slider">
-        <div className="slider-content">
-          <h2 className="slider-title">
-            <strong>Select your Country</strong>
-          </h2>
+    <div className="page-display">
+        <img className="logo-props" src={logo} alt="" />
+        <br />
+        <form classname="form-style" onSubmit={handleSubmit}>
+          <input className="input-container"
+            type="text"
+            placeholder="Write your name"
+            name="userName"
+            value={userName}
+            onChange={(e) => console.log(e.target.value)}
+          />
           <br />
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="userName"
-              value={userName}
-              onChange={(e) => console.log(e.target.value)}
-            />
-            <br />
-            <input
-              type="text"
-              list="country-list"
-              name="country"
-              id="country"
-              onChange={(e) => setFilterType(e.target.value)}
-              data-code="code-test"
-            />
-            <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
-              {countriesCode
-                .filter((country) => country.name.startsWith(filterType))
-                .map((country) => (
-                  <option key={country.code} value={country.name} />
-                ))}
-            </datalist>
-            <br />
-            {error && (
-              <span style={{ color: "red" }}>Country is not valid</span>
-            )}
-            <br />
-            <button type="submit">Enter</button>
-          </form>
+          <input className="input-container"
+            type="text"
+            placeholder="Please select a country"
+            list="country-list"
+            name="country"
+            id="country"
+            onChange={(e) => setFilterType(e.target.value)}
+            data-code="code-test"
+          />
+          <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
+            {countriesCode
+              .filter((country) => country.name.startsWith(filterType))
+              .map((country) => (
+                <option key={country.code} value={country.name} />
+              ))}
+          </datalist>
+          <br />
+          {error && (
+            <span style={{ color: "red" }}>Country is not valid</span>
+          )}
+          <br />
+          <button className="btn-container" type="submit">Enter</button>
+        </form>
+        <div className="social-media">
+          <div className="wrapper">
+              <div className="button">
+                  <div className="icon"><i className="fab fa-facebook-f"></i></div>
+                  <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://www.facebook.com")}}><span>Facebook</span></a>
+              </div>
+              <div className="button">
+                  <div className="icon"><i className="fab fa-instagram"></i></div>
+                  <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://www.instagram.com")}}><span>Instagram</span></a>
+              </div>
+              <div className="button">
+                  <div className="icon"><i className="fab fa-github"></i></div>
+                  <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://github.com")}}><span>GitHub</span></a>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 

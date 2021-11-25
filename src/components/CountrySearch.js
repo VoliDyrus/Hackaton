@@ -57,7 +57,7 @@ function CountrySearch() {
                   <option key={country.code} value={country.name} />
                 ))}
             </datalist>
-            <input type="submit" value="Search" className="slider-search-btn" />
+            <input type="submit" value="" className="slider-search-btn" />
           </form>
         </div>
       </div>
