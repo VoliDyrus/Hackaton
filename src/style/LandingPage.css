@@ -1,6 +1,113 @@
-.nav-container {
-  background-color: black;
-  color: white;
-  padding: 20px;
+body {
+  background-color: rgb(226, 159, 159);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  flex-direction: column;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: 60px;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  position: fixed !important;
   top: 0;
+  z-index: 10;
+}
+
+.box1 {
+  width: 100px;
+  height: 100%;
+  background-color: blue;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  font-size: 1rem;
+}
+.box2 {
+  width: 100px;
+  height: 100%;
+  background-color: green;
+  color: white;
+}
+
+.divbody {
+}
+
+/* .div-cat1 {
+  width: 50px;
+  height: 50;
+  background-color: orange;
+  border: 1px solid black;
+  margin: 10px;
+} */
+
+.container2 {
+  width: 100%;
+  height: 50px;
+  background-color: lightblue;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.country {
+  background-color: green;
+}
+.categories {
+  background-color: purple;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+.swiper {
+  width: 100%;
+}
+
+.div-cat1 {
+  width: 100px;
+}
+
+/* .search-ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+} */
+
+/* .total-container {
+  display: flex;
+  overflow: hidden;
+} */
+
+.swiper-items {
+  width: 100%;
+}
+
+.search-ul {
+  margin-top: 70px;
+  background-color: white;
+  height: 100%;
 }
