@@ -1,22 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import CountrySearch from "./CountrySearch";
 
+import { countriesCode } from "../data/countriesData";
 import GenresContext from "../contexts/GenresContext";
 import MiniCard from "./MiniCard";
 
 import "../style/LandingPage.css";
 
-const countriesCode = [
-  { name: "Great Britain", code: "GB" },
-  { name: "United Status of America", code: "US" },
-];
-
 function Main() {
-  let countryName;
-
+  const [filterType, setFilterType] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("Great Britain");
+  const [userName, setUserName] = useState();
   const { displayGenres } = useContext(GenresContext);
 
   const [generalEvents, setGeneralEvents] = useState([]);
+  console.log("selectedCountry", selectedCountry);
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSelectedCountry(e.target.elements.country.value)
+    setUserName(e.target.value)
+  }
 
   async function getEvents(countryCode = "Great Britain", genre = "") {
     let twoLettersCode = countriesCode.find(
@@ -72,6 +76,42 @@ function Main() {
             <br />
           </>
         ))}
+    </div>
+  );
+  return (
+    <div>
+      <div className="slider">
+        <div className="slider-content">
+          <h2 className="slider-title">
+            <strong>Select your Country</strong>
+          </h2>
+          <br />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="userName"
+              value={userName}
+              onChange={(e) => console.log(e.target.value)}
+            />           
+            <input
+              type="text"
+              list="country-list"
+              name="country"
+              id="country"
+              onChange={(e) => console.log(e.target.value)}
+              data-code="code-test"
+            />
+            <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
+              {countriesCode
+                .filter((country) => country.name.startsWith(filterType))
+                .map((country) => (
+                  <option key={country.code} value={country.name} />
+                ))}
+            </datalist>
+            <button type="submit">Enter</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
