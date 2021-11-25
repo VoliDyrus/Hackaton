@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 
+import LandingPage from "./LandingPage";
 import CountrySearch from "./CountrySearch";
 import GenresContext from "../contexts/GenresContext";
-
-import LandingPage from "./LandingPage";
+import { countriesCode } from "../data/countriesData";
 
 import "../style/LandingPage.css";
 
@@ -40,11 +40,14 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
-          setGeneralEvents((prevList) => {
-            const newList = [...prevList, dataFinal];
-            console.log(newList);
-            return newList;
-          });
+  
+          if (dataFinal) {
+            setGeneralEvents((prevList) => {
+              const newList = [...prevList, dataFinal];
+              console.log(newList);
+              return newList;
+            });
+          }
         }
       } catch (error) {
         console.log(error);
@@ -66,7 +69,9 @@ function Main() {
   }, [selectedCountry]);
 
   return (
-    <div className="container-main">
+    <>
+      <div className="container-main">
+        <div className="wrapper-main">
       {generalEvents.length > 0 &&
         generalEvents.map((genre) => (
           <>
@@ -74,7 +79,10 @@ function Main() {
             <LandingPage event={genre} country={selectedCountry} />
           </>
         ))}
-    </div>
+          <CountrySearch />
+        </div>
+      </div>
+    </>
   );
 }
 

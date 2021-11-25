@@ -26,8 +26,12 @@ function MiniCard(props) {
       ></div>
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
+<<<<<<< HEAD
       <img src={props.event.images[0].url} alt="" width="350" height="200" />
 
+=======
+      <img src={props.event.images[0].url} alt="" width="350" height="200" />    
+>>>>>>> 1b88792bd0e440a4f83ef4c8e9ad3939632b35db
       <div className="card-time">
         {props.event.dates.start.localDate} <br />
         {props.event.dates.start.localTime}
