@@ -1,21 +1,39 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import "../style/Favorites.css";
+import star from "../images/favourite.png";
+import arrow from "../images/arrow.png";
+import FavoriteContext from "../contexts/FavoriteContext";
+import MiniCard from "./MiniCard";
 
 function Favorites() {
+  const { favoritesList } = useContext(FavoriteContext);
+
   return (
     <div>
-      <header>
-        <button className="back-button">
-          <NavLink to={`/events`} className="">
-            {" "}
-            Arrow Symbol
-          </NavLink>
-          <div className="favorites-symbol">
-            <div>star symbol</div>
-            <h2 className="favorites-title">Your saved Events:</h2>
+      <header className="fav-header">
+        <div className="container-header">
+          <button className="back-button">
+            <img src={arrow} alt="back-button" width="20px" />
+          </button>
+          <div className="container-favorites">
+            <img src={star} alt="star" width="20px" />
+            <p className="favorites-title">Your saved Events:</p>
           </div>
-        </button>
+        </div>{" "}
       </header>
+      <div className="favourite-container">
+        {Object.values(favoritesList).length > 0 ? (
+          <div className="row">
+            {Object.values(favoritesList).map((event) => (
+              <>
+                <MiniCard event={event} />
+              </>
+            ))}
+          </div>
+        ) : (
+          <h1>You don't have any saved events</h1>
+        )}
+      </div>
     </div>
   );
 }
