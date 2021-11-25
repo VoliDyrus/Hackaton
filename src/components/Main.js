@@ -1,7 +1,13 @@
 import React from "react";
+import {countriesCode} from "../data/countriesData";
 
 function main() {
-  return <div></div>;
-}
+  return( 
+  <div>
+    <form>
+      <input type="text" />
+    </form>
+  </div>
+)}
 
-export default main;
+export default Main;
