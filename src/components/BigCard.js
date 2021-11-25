@@ -1,10 +1,9 @@
 import React from "react";
 import star from "../images/favourite.png";
 
-function MiniCard(props) {
+function BigCard(props) {
   return (
     <div>
-      {props.event.classifications[0].genre.name}
       <img
         src={star}
         alt="star"
@@ -14,17 +13,26 @@ function MiniCard(props) {
       ></img>
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" width="350" height="200" />
+      <img src={props.event.images[0].url} alt="" width="500" height="300" />
       <div className="card-locale">
         {props.event._embedded.venues[0].address.line1} <br />
         {props.event._embedded.venues[0].address.line2}
         <br />
       </div>
       <div className="card-time">
-        {props.event.dates.start.localDate} <br />
-        {props.event.dates.start.localTime}
+        Date:{props.event.dates.start.localDate} <br />
+        Time: {props.event.dates.start.localTime}
       </div>
+      <p>{props.event.info}</p>
+      <p>{props.event.dates.status.code}</p>
+      <p>
+        Tickets on sale from {props.event.sales.public.startDateTime} until{" "}
+        {props.event.sales.public.endDateTime}.
+      </p>
+      <button>
+        <a href={props.event.url}>Get your tickets!</a>
+      </button>
     </div>
   );
 }
-export default MiniCard;
+export default BigCard;

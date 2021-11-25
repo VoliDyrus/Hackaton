@@ -1,96 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router";
 import axios from "axios";
-import CountrySearch from "./CountrySearch";
+
 import { countriesCode } from "../data/countriesData";
-import logo from "../logo.png";
+import GenresContext from "../contexts/GenresContext";
 
-import "../style/Main.css";
+import MiniCard from "./MiniCard";
 
+import "../style/LandingPage.css";
+import CountrySearch from "./CountrySearch";
 
 function Main() {
-  const [filterType, setFilterType] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("Great Britain");
-  const [userName, setUserName] = useState();
+  const params = useParams();
+  const selectedCountry = params.country;
+  const { displayGenres } = useContext(GenresContext);
 
-  console.log("selectedCountry", selectedCountry);
+  const [generalEvents, setGeneralEvents] = useState([]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSelectedCountry(e.target.elements.country.value)
-    setUserName(e.target.value)
-  }
-  function handleRedirect (url) {
-    return(
-        window.open(url)
-    )
-  }
-  async function requestApi(selectedCountry) {
-    let countryFound = countriesCode.find(
-      (country) => country.name === selectedCountry
+  console.log("selectedCountry", selectedCountry, typeof selectedCountry);
+
+  async function getEvents(countryCode = "Great Britain", genre = "") {
+    let twoLettersCode = countriesCode.find(
+      (country) => country.name === countryCode
     );
-
-    if (countryFound) {
-      const response = await axios.get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=${countryFound.code}&size=10&apikey=qrf4AHhPNz3OMCpLMaTadNgQxJNSHmkc`
-      );
-      const data = await response.data;
-      console.log(data);
-    } else {
-      alert("Pls select valid country");
+    twoLettersCode = twoLettersCode.code;
+    if (twoLettersCode) {
+      try {
+        if (genre === "All") {
+          const response = await axios.get(
+            `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=${twoLettersCode}&size=10&apikey=${process.env.REACT_APP_API_KEY}`
+          );
+          let data = await response.data;
+          data = data._embedded.events;
+          setGeneralEvents([data]);
+        } else {
+          let genreId = displayGenres.find((elt) => elt.name === genre);
+          genreId = genreId.id;
+          const response = await axios.get(
+            `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&genreId=${genreId}&countryCode=${twoLettersCode}&size=10&apikey=${process.env.REACT_APP_API_KEY}`
+          );
+          const data = await response.data;
+          const dataFinal = data._embedded.events;
+          console.log(dataFinal);
+          setGeneralEvents((prevList) => {
+            const newList = [...prevList, dataFinal];
+            return newList;
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
   useEffect(() => {
-    requestApi(selectedCountry);
+    setGeneralEvents([]);
+    if (selectedCountry && displayGenres.length > 0) {
+      displayGenres.forEach((genre) => {
+        getEvents(selectedCountry, genre.name);
+      });
+    } else if (displayGenres.length > 0) {
+      displayGenres.forEach((genre) => {
+        getEvents("Great Britain", genre.name);
+      });
+    }
   }, [selectedCountry]);
 
   return (
-    <div className="page-display">
-      <img className="logo-props" src={logo} alt=""/>
-      <br />
-      <form className="form-style" onSubmit={handleSubmit}>
-        <input className="input-container"
-          type="text"
-          name="userName"
-          value={userName}
-          onChange={(e) => console.log(e.target.value)}
-          placeholder="Write your name"
-        /><br />        
-        <input className="input-container"
-          type="text"
-          list="country-list"
-          name="country"
-          id="country"
-          onChange={(e) => console.log(e.target.value)}
-          data-code="code-test"
-          placeholder="Select a city"
-        /><br /> 
-        <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
-          {countriesCode
-            .filter((country) => country.name.startsWith(filterType))
-            .map((country) => (
-              <option key={country.code} value={country.name} />
-            ))}
-        </datalist><br /> 
-          <button className="btn-container" type="submit">Enter</button>
-      </form>
-      <div className="social-media">
-        <div className="wrapper">
-          <div className="button">
-              <div className="icon"><i className="fab fa-facebook-f"></i></div>
-              <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://www.facebook.com/")}}><span>Facebook</span></a>
-          </div>
-          <div className="button">
-              <div className="icon"><i className="fab fa-instagram"></i></div>
-              <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://www.instagram.com/")}}><span>Instagram</span></a>
-          </div>
-          <div className="button">
-              <div className="icon"><i className="fab fa-github"></i></div>
-              <a className="removeHiperLinks" onClick={()=>{handleRedirect("https://github.com/")}}><span>GitHub</span></a>
-          </div>
-        </div>
+    <>
+      <div>
+        {generalEvents.length > 0 &&
+          generalEvents.map((genre) => (
+            <>
+              {genre.map((event) => (
+                <MiniCard key={event.id} event={event} />
+              ))}
+              <br />
+            </>
+          ))}
       </div>
-    </div>
+      <CountrySearch />
+    </>
   );
 }
 
