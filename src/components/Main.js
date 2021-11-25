@@ -67,6 +67,19 @@ function Main() {
   }, [selectedCountry]);
 
   return (
+<<<<<<< HEAD
+    <div>
+      {generalEvents.length > 4 &&
+        generalEvents.map((genre) => (
+          <>
+            {genre.map((event) => (
+              <MiniCard key={event.id} event={event} />
+            ))}
+            <br />
+          </>
+        ))}
+    </div>
+=======
     <>
       <div className="container-main">
         <div className="wrapper-main">
@@ -83,6 +96,7 @@ function Main() {
         </div>
       </div>
     </>
+>>>>>>> 7bc0a0fa67274127944663897d629d575add748d
   );
 }
 
