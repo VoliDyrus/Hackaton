@@ -67,19 +67,6 @@ function Main() {
   }, [selectedCountry]);
 
   return (
-<<<<<<< HEAD
-    <div>
-      {generalEvents.length > 4 &&
-        generalEvents.map((genre) => (
-          <>
-            {genre.map((event) => (
-              <MiniCard key={event.id} event={event} />
-            ))}
-            <br />
-          </>
-        ))}
-    </div>
-=======
     <>
       <div>
         {generalEvents.length > 0 &&
@@ -94,7 +81,6 @@ function Main() {
       </div>
       <CountrySearch />
     </>
->>>>>>> 7bc0a0fa67274127944663897d629d575add748d
   );
 }
 
