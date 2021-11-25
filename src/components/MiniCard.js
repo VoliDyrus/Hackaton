@@ -9,6 +9,10 @@ function MiniCard(props) {
         {props.event._embedded.venues[0].address.line1} <br />
         {props.event._embedded.venues[0].address.line2}{" "}
       </div>
+      <div className="card-time">
+        {props.event.dates.start.localDate} <br />
+        {props.event.dates.start.localTime}
+      </div>
     </div>
   );
 }
