@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function main() {
+function Main() {
   return <div></div>;
 }
 
-export default main;
+export default Main;
