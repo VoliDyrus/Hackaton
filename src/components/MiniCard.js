@@ -2,6 +2,8 @@ import React from "react";
 import star from "../images/favourite.png";
 
 function MiniCard(props) {
+  const [favorites, setFavorites] = useState([]);
+
   return (
     <div>
       <img

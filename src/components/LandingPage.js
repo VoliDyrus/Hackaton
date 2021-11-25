@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../style/LandingPage.css";
-import BigCard from "./BigCard";
+import MiniCard from "./MiniCard";
 import axios from "axios";
-import Favorites from "./Favorites";
 
 const LandingPage = () => {
   const [miniList, setMiniList] = useState([]);
@@ -19,11 +18,10 @@ const LandingPage = () => {
   }, []);
   return (
     <>
-      <Favorites />
       <h1>hello</h1>
       <div>
         {miniList &&
-          miniList.map((event) => <BigCard key={event.id} event={event} />)}
+          miniList.map((event) => <MiniCard key={event.id} event={event} />)}
       </div>
     </>
   );
