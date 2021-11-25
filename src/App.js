@@ -1,28 +1,20 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Main from "./components/Main";
+import { GenresContextProvider } from "./contexts/GenresContext";
 
 function App() {
-  async function testing() {
-    /* get genres array for music
-    const response = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/classifications/KZFzniwnSyZfZ7v7nJ.json?apikey=qrf4AHhPNz3OMCpLMaTadNgQxJNSHmkc`
-    );
-    const data = await response.data;
-    console.log(data);
-    */
-    /* events' array */
-    const response = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=GB&size=10&apikey=${process.env.REACT_APP_API_KEY}`
-    );
-    const data = await response.data;
-    console.log(data._embedded.events);
-  }
-
-  useEffect(() => {
-    testing();
-  }, []);
-
-  return <h1>hello </h1>;
+  return (
+    <GenresContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<Main />} />
+          <Route path="/welcome/" component={<Main />} />
+        </Routes>
+      </Router>
+    </GenresContextProvider>
+  );
 }
 
 export default App;
