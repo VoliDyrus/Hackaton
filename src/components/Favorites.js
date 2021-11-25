@@ -9,7 +9,7 @@ function Favorites() {
       <header className="fav-header">
         <div className="container-header">
           <button className="back-button">
-            <img src={arrow} alt="back-button" />
+            <img src={arrow} alt="back-button" width="20px" />
           </button>
           <div className="container-favorites">
             <img src={star} alt="star" width="20px" />

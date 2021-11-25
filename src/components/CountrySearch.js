@@ -3,7 +3,7 @@ import { countriesCode } from "../data/countriesData";
 
 import axios from "axios";
 
-function CardDetails() {
+function CountrySearch() {
   const [filterType, setFilterType] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("Great Britain");
 
@@ -15,15 +15,19 @@ function CardDetails() {
   }
 
   async function requestApi(selectedCountry) {
-    let { code } = countriesCode.find(
+    let countryFound = countriesCode.find(
       (country) => country.name === selectedCountry
     );
 
-    const response = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=${code}&size=10&apikey=qrf4AHhPNz3OMCpLMaTadNgQxJNSHmkc`
-    );
-    const data = await response.data;
-    console.log(data);
+    if (countryFound) {
+      const response = await axios.get(
+        `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=${countryFound.code}&size=10&apikey=qrf4AHhPNz3OMCpLMaTadNgQxJNSHmkc`
+      );
+      const data = await response.data;
+      console.log(data);
+    } else {
+      alert("Pls select valid country");
+    }
   }
 
   useEffect(() => {
@@ -35,7 +39,7 @@ function CardDetails() {
       <div className="slider">
         <div className="slider-content">
           <h2 className="slider-title">
-            <strong>Search By Country:</strong>
+            <strong>Select your Country</strong>
           </h2>
           <br />
           <form onSubmit={handleSubmit}>
@@ -62,4 +66,4 @@ function CardDetails() {
   );
 }
 
-export default CardDetails;
+export default CountrySearch;
