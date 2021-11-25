@@ -1,12 +1,13 @@
-
-import Main from "./components/Main"
+import Main from "./components/Main";
+import { Routes, Route } from "react-router-dom";
+import CountrySearch from "./components/CountrySearch";
 
 function App() {
   return (
-  <div>
-    <h1>hello</h1>
-    <Main />
-  </div>
+    <Routes>
+      <Route path="/" element={<CountrySearch />} />
+      <Route path="/main" element={<Main />} />
+    </Routes>
   );
 }
 

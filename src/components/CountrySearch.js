@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import CountrySearch from "./CountrySearch";
-
+import React, { useEffect, useState } from "react";
 import { countriesCode } from "../data/countriesData";
 
+import axios from "axios";
 
-function Main() {
+function CountrySearch() {
   const [filterType, setFilterType] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("Great Britain");
-  const [userName, setUserName] = useState();
 
   console.log("selectedCountry", selectedCountry);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setSelectedCountry(e.target.elements.country.value)
-    setUserName(e.target.value)
+    setSelectedCountry(e.target.elements.country.value);
   }
 
- 
   async function requestApi(selectedCountry) {
     let countryFound = countriesCode.find(
       (country) => country.name === selectedCountry
@@ -50,12 +45,6 @@ function Main() {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="userName"
-              value={userName}
-              onChange={(e) => console.log(e.target.value)}
-            />           
-            <input
-              type="text"
               list="country-list"
               name="country"
               id="country"
@@ -69,7 +58,7 @@ function Main() {
                   <option key={country.code} value={country.name} />
                 ))}
             </datalist>
-            <button type="submit">Enter</button>
+            <input type="submit" value="Search" className="slider-search-btn" />
           </form>
         </div>
       </div>
@@ -77,4 +66,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default CountrySearch;
