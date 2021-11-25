@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   async function testing() {
@@ -22,7 +23,7 @@ function App() {
     testing();
   }, []);
 
-  return <h1>hello </h1>;
+  return <LandingPage />;
 }
 
 export default App;
