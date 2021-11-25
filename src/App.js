@@ -1,7 +1,8 @@
-import "./App.css";
+import "./style/App.css";
+import CardDetails from "./components/CardDetails";
 
 function App() {
-  return <h1>hello</h1>;
+  return <CardDetails />;
 }
 
 export default App;
