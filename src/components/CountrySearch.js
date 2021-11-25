@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { countriesCode } from "../data/countriesData";
+import "../style/CardDetails.css";
 
 import axios from "axios";
 
@@ -50,6 +51,7 @@ function CountrySearch() {
               id="country"
               onChange={(e) => console.log(e.target.value)}
               data-code="code-test"
+              className="search-bar"
             />
             <datalist id="country-list" onSelect={(e) => console.log(e.target)}>
               {countriesCode
@@ -58,7 +60,7 @@ function CountrySearch() {
                   <option key={country.code} value={country.name} />
                 ))}
             </datalist>
-            <input type="submit" value="Search" className="slider-search-btn" />
+            <input type="submit" value="" className="slider-search-btn" />
           </form>
         </div>
       </div>
