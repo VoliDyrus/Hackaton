@@ -1,5 +1,4 @@
-
-export const countriesCode =[ 
+const countriesCode =[ 
   {name: 'Andorra', code: 'AD'},
   {name: 'Anguilla', code: 'AI'},  
   {name: 'Argentina', code: 'AR'}, 
@@ -79,5 +78,7 @@ export const countriesCode =[
   {name: 'United Arab Emirates', code: 'AE'}, 
   {name: 'United States', code: 'US'}, 
   {name: 'Uruguay', code: 'UY'}, 
-  {name: 'Venezuela', code: 'VE'}
+  {name: 'Venezuela', code: 'VE'},
 ]
+
+export {countriesCode};
