@@ -8,6 +8,7 @@ import GenresContext from "../contexts/GenresContext";
 import MiniCard from "./MiniCard";
 
 import "../style/LandingPage.css";
+import CountrySearch from "./CountrySearch";
 
 function Main() {
   const params = useParams();
@@ -40,6 +41,7 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
+          console.log(dataFinal);
           setGeneralEvents((prevList) => {
             const newList = [...prevList, dataFinal];
             return newList;
@@ -52,6 +54,7 @@ function Main() {
   }
 
   useEffect(() => {
+    setGeneralEvents([]);
     if (selectedCountry && displayGenres.length > 0) {
       displayGenres.forEach((genre) => {
         getEvents(selectedCountry, genre.name);
@@ -61,9 +64,10 @@ function Main() {
         getEvents("Great Britain", genre.name);
       });
     }
-  }, [displayGenres, selectedCountry]);
+  }, [selectedCountry]);
 
   return (
+<<<<<<< HEAD
     <div>
       {generalEvents.length > 4 &&
         generalEvents.map((genre) => (
@@ -75,6 +79,22 @@ function Main() {
           </>
         ))}
     </div>
+=======
+    <>
+      <div>
+        {generalEvents.length > 0 &&
+          generalEvents.map((genre) => (
+            <>
+              {genre.map((event) => (
+                <MiniCard key={event.id} event={event} />
+              ))}
+              <br />
+            </>
+          ))}
+      </div>
+      <CountrySearch />
+    </>
+>>>>>>> 7bc0a0fa67274127944663897d629d575add748d
   );
 }
 
