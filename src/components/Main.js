@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 
-import MiniCard from "./MiniCard";
 import CountrySearch from "./CountrySearch";
 import GenresContext from "../contexts/GenresContext";
-import { countriesCode } from "../data/countriesData";
+
+import LandingPage from "./LandingPage";
 
 import "../style/LandingPage.css";
 
@@ -66,22 +66,15 @@ function Main() {
   }, [selectedCountry]);
 
   return (
-    <>
-      <div className="container-main">
-        <div className="wrapper-main">
-          {generalEvents.length > 0 &&
-            generalEvents.map((genre) => (
-              <>
-                {genre.map((event) => (
-                  <MiniCard key={event.id} event={event} />
-                ))}
-                <br />
-              </>
-            ))}
-          <CountrySearch />
-        </div>
-      </div>
-    </>
+    <div className="container-main">
+      {generalEvents.length > 0 &&
+        generalEvents.map((genre) => (
+          <>
+            {genre[0].classifications[0].genre.name}
+            <LandingPage event={genre} country={selectedCountry} />
+          </>
+        ))}
+    </div>
   );
 }
 
