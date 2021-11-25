@@ -19,10 +19,7 @@ const LandingPage = () => {
   return (
     <>
       <h1>hello</h1>
-      <div>
-        {miniList &&
-          miniList.map((event) => <MiniCard key={event.id} event={event} />)}
-      </div>
+      <div>{miniList && miniList.map((event) => <MiniCard {...event} />)}</div>
     </>
   );
 };

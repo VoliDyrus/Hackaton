@@ -5,7 +5,7 @@ import axios from "axios";
 import { countriesCode } from "../data/countriesData";
 import GenresContext from "../contexts/GenresContext";
 
-import BigCard from "./BigCard";
+import MiniCard from "./MiniCard";
 
 import "../style/LandingPage.css";
 
@@ -69,7 +69,7 @@ function Main() {
         generalEvents.map((genre) => (
           <>
             {genre.map((event) => (
-              <BigCard key={event.id} event={event} />
+              <MiniCard key={event.id} event={event} />
             ))}
             <br />
           </>

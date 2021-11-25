@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../style/Favorites.css";
 import star from "../images/favourite.png";
 import arrow from "../images/arrow.png";
+import FavoriteContext from "../contexts/FavoriteContext";
+import MiniCard from "./MiniCard";
 
 function Favorites() {
+  const { favoritesList } = useContext(FavoriteContext);
+
   return (
     <div>
       <header className="fav-header">
@@ -17,6 +21,19 @@ function Favorites() {
           </div>
         </div>{" "}
       </header>
+      <div className="favourite-container">
+        {Object.values(favoritesList).length > 0 ? (
+          <div className="row">
+            {Object.values(favoritesList).map((event) => (
+              <>
+                <MiniCard event={event} />
+              </>
+            ))}
+          </div>
+        ) : (
+          <h1>You don't have any saved events</h1>
+        )}
+      </div>
     </div>
   );
 }
