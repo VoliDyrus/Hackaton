@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+import CardDetails from './CardDetails';
+
 function Main() {
   const { 
     register, 
@@ -20,14 +22,10 @@ function Main() {
               This field is required and with the right format
             </span>
           )}<br /><br />
-      <input 
-        type="search" placeholder="City" {...register("City", {required: true})} /><br />
-        {errors.Name && (
-            <span className="red">
-              This field is required and with the right format
-            </span>
-          )}<br />
+
+        
       <button type="submit">Enter</button>
+      <CardDetails />
       
     </form>
 
