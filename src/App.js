@@ -1,12 +1,11 @@
-import Main from "./components/Main";
+import CardDetails from "./components/CardDetails";
 
 function App() {
   return (
-  <div>
-    <h1>hello</h1>;
-    <Main />
-  </div>
-  
-)}
+    <div>
+      <CardDetails />
+    </div>
+  );
+}
 
 export default App;
