@@ -18,24 +18,12 @@ function MiniCard(props) {
   };
 
   return (
-<<<<<<< HEAD
     <div className="mini-card" key={props.event.id}>
       <div
         id="favorite"
         className={isFavorite ? "isFavorite" : "notFavorite"}
         onClick={handleClickFavorite}
       ></div>
-=======
-    <div>
-      {props.event.classifications[0].genre.name}
-      <img
-        src={star}
-        alt="star"
-        width="25px"
-        height="25px"
-        onClick={(element) => (element.target.style.backgroundColor = "yellow")}
-      ></img>
->>>>>>> 7bc0a0fa67274127944663897d629d575add748d
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
       <img src={props.event.images[0].url} alt="" width="350" height="200" />
