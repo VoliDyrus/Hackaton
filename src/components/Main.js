@@ -5,9 +5,10 @@ import axios from "axios";
 import { countriesCode } from "../data/countriesData";
 import GenresContext from "../contexts/GenresContext";
 
-import BigCard from "./BigCard";
+import MiniCard from "./MiniCard";
 
 import "../style/LandingPage.css";
+import CountrySearch from "./CountrySearch";
 
 function Main() {
   const params = useParams();
@@ -40,6 +41,7 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
+          console.log(dataFinal);
           setGeneralEvents((prevList) => {
             const newList = [...prevList, dataFinal];
             return newList;
@@ -64,17 +66,20 @@ function Main() {
   }, [displayGenres, selectedCountry]);
 
   return (
-    <div>
-      {generalEvents.length > 4 &&
-        generalEvents.map((genre) => (
-          <>
-            {genre.map((event) => (
-              <BigCard key={event.id} event={event} />
-            ))}
-            <br />
-          </>
-        ))}
-    </div>
+    <>
+      <div>
+        {generalEvents.length > 4 &&
+          generalEvents.map((genre) => (
+            <>
+              {genre.map((event) => (
+                <MiniCard key={event.id} event={event} />
+              ))}
+              <br />
+            </>
+          ))}
+      </div>
+      <CountrySearch />
+    </>
   );
 }
 

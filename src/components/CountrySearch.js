@@ -1,38 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { countriesCode } from "../data/countriesData";
+import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
+import { countriesCode } from "../data/countriesData";
 
 function CountrySearch() {
   const [filterType, setFilterType] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("Great Britain");
+  const [error, setError] = useState(false);
 
-  console.log("selectedCountry", selectedCountry);
+  let navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    setSelectedCountry(e.target.elements.country.value);
-  }
-
-  async function requestApi(selectedCountry) {
-    let countryFound = countriesCode.find(
-      (country) => country.name === selectedCountry
+    const country = e.target.elements.country.value;
+    console.log(country);
+    const validateCountry = countriesCode.findIndex(
+      (elt) => elt.name === country
     );
-
-    if (countryFound) {
-      const response = await axios.get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&countryCode=${countryFound.code}&size=10&apikey=qrf4AHhPNz3OMCpLMaTadNgQxJNSHmkc`
-      );
-      const data = await response.data;
-      console.log(data);
+    console.log(validateCountry);
+    if (validateCountry !== -1) {
+      navigate(`/welcome/${country}`);
     } else {
-      alert("Pls select valid country");
+      setError(true);
     }
   }
-
-  useEffect(() => {
-    requestApi(selectedCountry);
-  }, [selectedCountry]);
 
   return (
     <div>
@@ -58,6 +48,9 @@ function CountrySearch() {
                   <option key={country.code} value={country.name} />
                 ))}
             </datalist>
+            {error && (
+              <span style={{ color: "red" }}>Country is not valid</span>
+            )}
             <input type="submit" value="Search" className="slider-search-btn" />
           </form>
         </div>

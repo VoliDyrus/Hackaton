@@ -4,6 +4,7 @@ import star from "../images/favourite.png";
 function MiniCard(props) {
   return (
     <div>
+      {props.event.classifications[0].genre.name}
       <img
         src={star}
         alt="star"
