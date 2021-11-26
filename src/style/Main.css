@@ -1,0 +1,9 @@
+.wrapper-main {
+  position: relative;
+  width: 100vw;
+}
+.country-search-container {
+  height: 100vh;
+  width: auto;
+  position: relative;
+}

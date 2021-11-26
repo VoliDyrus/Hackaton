@@ -1,0 +1,119 @@
+.bigCard-data {
+  position: fixed;
+}
+.card-name {
+  top: 8px;
+  font-size: 26px;
+  font-weight: bold;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 20px;
+}
+
+.bigCard-content {
+  width: 100vw;
+  height: 80vh;
+  position: absolute;
+  background-color: #000000cf;
+  bottom: 0;
+  border-top-left-radius: 70px 35px;
+  border-top-right-radius: 70px 35px;
+  text-align: center;
+  color: white;
+  transition: 1s;
+  transform: translateY(80%);
+}
+.bigCard-content:hover {
+  transform: translateY(10%);
+}
+
+.bigCard-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.backish-button {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 3px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.backish-button:hover,
+.backish-button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.backish-button:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.backish-button:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+.backish-button2 {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 3px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.backish2-button:hover,
+.backish2-button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.backish2-button:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.backish2-button:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
