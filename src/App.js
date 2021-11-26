@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/*" element={<Landing />} />
             <Route path="/welcome/:country" element={<Main />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/welcome/:country/favorites" element={<Favorites />} />
           </Routes>
         </Router>
       </FavoriteContextProvider>

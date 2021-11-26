@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import axios from "axios";
 
 import LandingPage from "./LandingPage";
-import CountrySearch from "./CountrySearch";
 import GenresContext from "../contexts/GenresContext";
 import { countriesCode } from "../data/countriesData";
 
@@ -12,6 +11,7 @@ import "../style/LandingPage.css";
 function Main() {
   const params = useParams();
   const selectedCountry = params.country;
+
   const { displayGenres } = useContext(GenresContext);
 
   const [generalEvents, setGeneralEvents] = useState([]);
@@ -76,7 +76,7 @@ function Main() {
             generalEvents.map((genre) => (
               <>
                 {genre[0].classifications[0].genre.name}
-                <LandingPage event={genre} country={selectedCountry} />
+                <LandingPage event={genre} />
               </>
             ))}
           {/*   <CountrySearch /> */}
