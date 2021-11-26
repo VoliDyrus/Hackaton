@@ -79,10 +79,10 @@ function Main({ userName }) {
           {generalEvents.length > 0 &&
             generalEvents.map((genre, index) => (
               <>
-                {genre.name !== "All" && (
+                {index !== 0 && (
                   <h3>{genre[0].classifications[0].genre.name}</h3>
                 )}
-                <LandingPage event={genre} key={genre.name} />
+                <LandingPage event={genre} key={genre.name} genre={index} />
               </>
             ))}
         </div>
