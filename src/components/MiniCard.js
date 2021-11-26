@@ -1,8 +1,14 @@
 import React, { useState, useContext } from "react";
+import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
+
 import "../style/MiniCard.css";
 import FavoriteContext from "../contexts/FavoriteContext";
 
 function MiniCard(props) {
+  const params = useParams();
+  const selectedCountry = params.country;
+
   const [isFavorite, setIsFavorite] = useState(props.isFavorite);
   const { isFavoriteList, addFavorite, removeFavorite } =
     useContext(FavoriteContext);

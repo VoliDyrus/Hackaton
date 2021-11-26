@@ -71,12 +71,13 @@ function Main() {
   return (
     <>
       <div className="container-main">
+        Hello, Big
         <div className="wrapper-main">
           {generalEvents.length > 0 &&
             generalEvents.map((genre) => (
               <>
                 {genre[0].classifications[0].genre.name}
-                <LandingPage event={genre} />
+                <LandingPage event={genre} key={genre.name} />
               </>
             ))}
           {/*   <CountrySearch /> */}
