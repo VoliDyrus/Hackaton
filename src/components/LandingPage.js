@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import MiniCard from "./MiniCard";
-import UserNameContext from "../contexts/UserNameContext";
 import "../style/LandingPage.css";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -14,17 +13,14 @@ import "swiper/modules/navigation/navigation.scss";
 SwiperCore.use([Navigation]);
 
 const LandingPage = ({ event }) => {
-  const { userName } = useContext(UserNameContext);
   const params = useParams();
   const selectedCountry = params.country;
-
-  console.log(userName);
 
   return (
     <section className="total-container">
       <div className="container-top">
         <div className="box1">
-          <h3> Welcome {userName || "Stranger"} </h3>
+          <h3> Welcome Stranger </h3>
           <p id="country-selected">{selectedCountry}</p>
         </div>
         <NavLink

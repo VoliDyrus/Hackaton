@@ -1,48 +1,73 @@
-import React from "react";
 import React, { useState, useContext } from "react";
-import FavoriteContext from "../contexts/FavoriteContext";
+import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 
-function BigCard(props) {
-  const [isFavorite, setIsFavorite] = useState(props.isFavorite);
+import FavoriteContext from "../contexts/FavoriteContext";
+import CurrentEventsContext from "../contexts/CurrentEventContext";
+import arrow from "../images/arrow.png";
+import { useEffect } from "react/cjs/react.development";
+
+function BigCard() {
+  const params = useParams();
+  const country = params.country;
+  const id = params.id;
+
+  const { currentEvents } = useContext(CurrentEventsContext);
+
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [currentEvent, setCurrentEvent] = useState({});
   const { isFavoriteList, addFavorite, removeFavorite } =
     useContext(FavoriteContext);
-  const currentlyFavorite = isFavoriteList(props.event.id);
+
+  const currentlyFavorite = isFavoriteList(id);
 
   const handleClickFavorite = () => {
     isFavorite ? setIsFavorite(false) : setIsFavorite(true);
     if (currentlyFavorite) {
-      removeFavorite(props.event.id);
+      removeFavorite(id);
     } else {
-      addFavorite(props.event.id, props.event);
+      addFavorite(id, currentEvent);
     }
   };
+
+  function updateInfo() {
+    const current = currentEvents.find((elt) => elt.id === id);
+    setCurrentEvent = current;
+  }
+  useEffect(() => {});
   return (
     <div>
+      <button className="back-button">
+        <NavLink to={`/welcome/${country}`}>
+          <img src={arrow} alt="back-button" width="20px" />
+        </NavLink>
+      </button>
       <div
         id="favorite"
         className={isFavorite ? "isFavorite" : "notFavorite"}
         onClick={handleClickFavorite}
       ></div>
-      <div className="card-name">{props.event.name}</div>
+
+      <div className="card-name">{currentEvent.name}</div>
       <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" width="500" height="300" />
+      <img src={currentEvent.images[0].url} alt="" width="500" height="300" />
       <div className="card-locale">
-        {props.event._embedded.venues[0].address.line1} <br />
-        {props.event._embedded.venues[0].address.line2}
+        {currentEvent._embedded.venues[0].address.line1} <br />
+        {currentEvent._embedded.venues[0].address.line2}
         <br />
       </div>
       <div className="card-time">
-        Date:{props.event.dates.start.localDate} <br />
-        Time: {props.event.dates.start.localTime}
+        Date:{currentEvent.dates.start.localDate} <br />
+        Time: {currentEvent.dates.start.localTime}
       </div>
-      <p>{props.event.info}</p>
-      <p>{props.event.dates.status.code}</p>
+      <p>{currentEvent.info}</p>
+      <p>{currentEvent.dates.status.code}</p>
       <p>
-        Tickets on sale from {props.event.sales.public.startDateTime} until{" "}
-        {props.event.sales.public.endDateTime}.
+        Tickets on sale from {currentEvent.sales.public.startDateTime} until{" "}
+        {currentEvent.sales.public.endDateTime}.
       </p>
       <button>
-        <a href={props.event.url}>Get your tickets!</a>
+        <a href={currentEvent.url}>Get your tickets!</a>
       </button>
     </div>
   );

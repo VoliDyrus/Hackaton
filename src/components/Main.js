@@ -7,12 +7,14 @@ import GenresContext from "../contexts/GenresContext";
 import { countriesCode } from "../data/countriesData";
 
 import "../style/LandingPage.css";
+import CurrentEventContext from "../contexts/CurrentEventContext";
 
 function Main() {
   const params = useParams();
   const selectedCountry = params.country;
 
   const { displayGenres } = useContext(GenresContext);
+  const { updateEvents } = useContext(CurrentEventContext);
 
   const [generalEvents, setGeneralEvents] = useState([]);
 
@@ -68,9 +70,14 @@ function Main() {
     }
   }, [selectedCountry]);
 
+  useEffect(() => {
+    updateEvents(generalEvents);
+  }, [generalEvents]);
+
   return (
     <>
       <div className="container-main">
+        Hello, Big
         <div className="wrapper-main">
           {generalEvents.length > 0 &&
             generalEvents.map((genre) => (

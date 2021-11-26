@@ -1,8 +1,14 @@
 import React, { useState, useContext } from "react";
+import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
+
 import "../style/MiniCard.css";
 import FavoriteContext from "../contexts/FavoriteContext";
 
 function MiniCard(props) {
+  const params = useParams();
+  const selectedCountry = params.country;
+
   const [isFavorite, setIsFavorite] = useState(props.isFavorite);
   const { isFavoriteList, addFavorite, removeFavorite } =
     useContext(FavoriteContext);
@@ -34,7 +40,11 @@ function MiniCard(props) {
       />
       <div className="card-name">{props.event.name}</div>
       <div className="card-time">date: {props.event.dates.start.localDate}</div>
-      <button>More Details</button>
+      <button>
+        <NavLink to={`/welcome/${selectedCountry}/${props.event.id}`}>
+          More Details
+        </NavLink>
+      </button>
     </div>
   );
 }
