@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { countriesCode } from "../data/countriesData";
 import MiniCard from "./MiniCard";
+
 import "../style/LandingPage.css";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";

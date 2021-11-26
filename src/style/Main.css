@@ -1,13 +1,10 @@
-.container-main {
- background-color: violet;
-}
 .wrapper-main {
   position: relative;
   width: 100vw;
+  padding-top: 75px;
 }
 .country-search-container {
   height: 100vh;
   width: auto;
   position: relative;
-  
 }

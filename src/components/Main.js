@@ -74,18 +74,13 @@ function Main({ userName }) {
   return (
     <>
       <div className="container-main">
-        Hello, Big
+        <h3 className="upcoming-events">Upcoming events </h3>
         <div className="wrapper-main">
           {generalEvents.length > 0 &&
             generalEvents.map((genre, index) => (
               <>
                 {genre.name !== "All" && genre[0].classifications[0].genre.name}
-                <LandingPage
-                  userName={userName}
-                  event={genre}
-                  key={genre.name}
-                  genre={index}
-                />
+                <LandingPage event={genre} key={genre.name} />
               </>
             ))}
         </div>
