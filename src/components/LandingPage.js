@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import MiniCard from "./MiniCard";
-import UserNameContext from "../contexts/UserNameContext";
+import UserNameContext from "../contexts/GenresContext";
 import "../style/LandingPage.css";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -36,6 +36,7 @@ const LandingPage = ({ event }) => {
           </div>
         </NavLink>
       </div>
+
       <div className="divbody">
         <ul className="search-ul">
           <Swiper
@@ -45,7 +46,7 @@ const LandingPage = ({ event }) => {
             breakpoints={{
               320: { slidesPerView: 2 },
               375: { slidesPerView: 2 },
-              480: { slidesPerView: 3 },
+              425: { slidesPerView: 2 },
               768: { slidesPerView: 4 },
               1024: { slidesPerView: 5 },
             }}
