@@ -80,7 +80,12 @@ function Main({ userName }) {
                 {index !== 0 && (
                   <h3>{genre[0].classifications[0].genre.name}</h3>
                 )}
-                <LandingPage event={genre} key={genre.name} genre={index} />
+                <LandingPage
+                  event={genre}
+                  key={genre.name}
+                  genre={index}
+                  userName={userName}
+                />
               </>
             ))}
         </div>

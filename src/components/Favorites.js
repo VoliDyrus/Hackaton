@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 import "../style/Favorites.css";
-import arrow from "../images/arrow.png";
+
 import FavoriteContext from "../contexts/FavoriteContext";
 import MiniCard from "./MiniCard";
+import returnArrow from "../images/returnArrow.png";
+import imgFavourite from "../images/img-favourite.png";
 
 function Favorites() {
   const { favoritesList } = useContext(FavoriteContext);
@@ -16,11 +18,11 @@ function Favorites() {
         <div className="container-header">
           <button className="back-button">
             <NavLink to={`/welcome/${selectedCountry}`}>
-              <img src={arrow} alt="back-button" width="20px" />
+              <img src={returnArrow} alt="back-button" />
             </NavLink>
           </button>
           <div className="container-favorites">
-            <p className="favorites-title">Your saved Events</p>
+            <p className="favorites-title">Your Favourite Events</p>
           </div>
         </div>{" "}
       </header>
@@ -35,10 +37,13 @@ function Favorites() {
             ))}
           </div>
         ) : (
-          <p className="favourite-msg">
-            Ups, you didn't save any events. Return to the last page and pick
-            your favourite choices
-          </p>
+          <div className="img-msg">
+            <p className="favourite-msg bubble thought speech">
+              Ups, you didn't save any events. Return to the last page and pick
+              your favourite artists.
+            </p>
+            <img className="favImg" src={imgFavourite} alt="" />
+          </div>
         )}
       </div>
     </div>

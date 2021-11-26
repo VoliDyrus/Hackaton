@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import "../style/BigCard.css";
 
-import arrow from "../images/arrow.png";
 import { useEffect } from "react/cjs/react.development";
 import { countriesCode } from "../data/countriesData";
 
@@ -32,43 +32,61 @@ function BigCard() {
 
   console.log(currentEvent);
   return (
-    <div>
-      Hello Big Card
-      <button className="back-button">
-        <NavLink to={`/welcome/${country}`}>
-          <img src={arrow} alt="back-button" width="20px" />
-        </NavLink>
-      </button>
+    <div className="bigCard-wrapper">
       {currentEvent && (
         <>
-          <div className="card-name">{currentEvent.name}</div>
-          <div className="card-image"></div>
           <img
             src={currentEvent.images[0].url}
             alt=""
             width="500"
             height="300"
+            className="bigCard-img"
           />
-          <div className="card-locale">
-            {currentEvent._embedded.venues[0].address.line1} <br />
-            {currentEvent._embedded.venues[0].address.line2 || " "}
-            <br />
-          </div>
-          <div className="card-time">
-            Date:{currentEvent.dates.start.localDate} <br />
-            Time: {currentEvent.dates.start.localTime}
-          </div>
-          <p>{currentEvent.info}</p>
-          <p>{currentEvent.dates.status.code}</p>
-          <p>
-            Tickets on sale from {currentEvent.sales.public.startDateTime} until{" "}
-            {currentEvent.sales.public.endDateTime}.
-          </p>
-          <button>
-            <a href={currentEvent.url}>Get your tickets!</a>
-          </button>
+
+          {currentEvent && (
+            <div className="bigCard-content">
+              <button className="backish-button">
+                <NavLink to={`/welcome/${country}`}>Back</NavLink>
+              </button>
+              <h1 className="card-name">{currentEvent.name}</h1>
+
+              <div className="bigCard-data"></div>
+
+              <p className="card-locale">
+                <br />
+                <br />
+                {currentEvent._embedded.venues[0].address.line1} <br />
+                {currentEvent._embedded.venues[0].address.line2 || " "}
+                <br />
+              </p>
+              <div className="card-time">
+                <b>Date</b>: {currentEvent.dates.start.localDate}
+                <br />
+                <br />
+                Time: {currentEvent.dates.start.localTime}
+                <br />
+                <br />
+              </div>
+              <p>{currentEvent.info}</p>
+              <br />
+              <br />
+              <p>
+                Tickets on sale from {currentEvent.sales.public.startDateTime}{" "}
+                until {currentEvent.sales.public.endDateTime}.
+              </p>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <button className="btn-container">
+                <a href={currentEvent.url}>Get your tickets!</a>
+              </button>
+            </div>
+          )}
         </>
       )}
+      {!currentEvent && <h3>Loading...</h3>}
     </div>
   );
 }

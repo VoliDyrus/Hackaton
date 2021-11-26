@@ -83,7 +83,7 @@ const LandingPage = ({ event, userName, genre }) => {
               375: { slidesPerView: 2 },
               425: { slidesPerView: 2 },
               768: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 },
+              1024: { slidesPerView: 6 },
             }}
           >
             <div className="swiper-items">
