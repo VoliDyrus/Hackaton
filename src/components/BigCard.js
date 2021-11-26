@@ -46,8 +46,7 @@ function BigCard() {
           {currentEvent && (
             <div className="bigCard-content">
               <button className="backish-button">
-                <NavLink to={`/welcome/${country}`} />
-                Back
+                <NavLink to={`/welcome/${country}`}>Back</NavLink>
               </button>
               <h1 className="card-name">{currentEvent.name}</h1>
 
