@@ -8,6 +8,8 @@
   background-image: url(../images/star.png);
   background-size: 100%;
   align-self: flex-start;
+  border: 2.5px solid #fef5f9;
+  box-shadow: 4px 6px 3px -1px black;
 }
 
 .App {
@@ -20,16 +22,26 @@
   right: 5%;
   top: 15%;
 }
+.upcoming-events {
+  position: absolute;
+  top: 14%;
+}
 
 .container-main {
-  background-image: linear-gradient(
+  /*   background-image: linear-gradient(
     to right,
     #e7f6f8,
     #ceecf3,
     #b6e2ef,
     #9fd7ed,
-    #88cbec
+    #d2e8f3
+  ); */
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255) 0%,
+    rgb(201 234 255) 83%
   );
+  padding-top: 109px;
 }
 
 .container-top {
@@ -49,7 +61,8 @@
   background-size: 200% 200%;
   animation: gradient 20s ease infinite;
   -webkit-box-shadow: -2px 7px 15px 0px #000000;
-  box-shadow: -2px -6px 13px 0px #000000;
+  box-shadow: 3px -3px 13px 0px #000000;
+  border-bottom-left-radius: 15px;
 }
 
 @keyframes gradient {
@@ -95,7 +108,6 @@ p {
 }
 
 .divbody {
-  margin-top: 70px;
   height: 100%;
 }
 
@@ -139,35 +151,16 @@ p {
   width: 100px;
 }
 
-/* .search-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-} */
-
-.total-container {
+/* .total-container {
   height: 50%;
-  background-color: violet;
-}
+} */
 
 .swiper-items {
   width: 100%;
 }
 
 .search-ul {
-  background-image: linear-gradient(
-    to right,
-    #e7f6f8,
-    #ceecf3,
-    #b6e2ef,
-    #9fd7ed,
-    #88cbec
-  );
+  padding-left: 0;
 }
 
 .div-img {
