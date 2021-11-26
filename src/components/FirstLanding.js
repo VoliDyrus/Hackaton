@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { countriesCode } from "../data/countriesData";
 import "../style/LandingPage.css";
 import logo from "../images/musicMeet.png";
-import microbg from "../images/microbg.jpg";
 
 function Landing({ userName, setUserName }) {
   const [filterType, setFilterType] = useState("");

@@ -32,7 +32,9 @@ function Main({ userName }) {
           );
           let data = await response.data;
           data = data._embedded.events;
-          setGeneralEvents([data]);
+          let newArray = [];
+          newArray[0] = data;
+          setGeneralEvents(newArray);
         } else {
           let genreId = displayGenres.find((elt) => elt.name === genre);
           genreId = genreId.id;
@@ -75,17 +77,17 @@ function Main({ userName }) {
         Hello, Big
         <div className="wrapper-main">
           {generalEvents.length > 0 &&
-            generalEvents.map((genre) => (
+            generalEvents.map((genre, index) => (
               <>
-                {genre[0].classifications[0].genre.name}
+                {genre.name !== "All" && genre[0].classifications[0].genre.name}
                 <LandingPage
                   userName={userName}
                   event={genre}
                   key={genre.name}
+                  genre={index}
                 />
               </>
             ))}
-          {/*   <CountrySearch /> */}
         </div>
       </div>
     </>

@@ -14,9 +14,11 @@ import "swiper/modules/navigation/navigation.scss";
 
 SwiperCore.use([Navigation]);
 
-const LandingPage = ({ event, userName }) => {
+const LandingPage = ({ event, userName, genre }) => {
   const params = useParams();
   const selectedCountry = params.country;
+
+  console.log(genre);
 
   const [error, setError] = useState(false);
 
