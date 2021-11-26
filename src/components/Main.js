@@ -83,7 +83,7 @@ function Main() {
             generalEvents.map((genre) => (
               <>
                 {genre[0].classifications[0].genre.name}
-                <LandingPage event={genre} />
+                <LandingPage event={genre} key={genre.name} />
               </>
             ))}
           {/*   <CountrySearch /> */}

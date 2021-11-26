@@ -49,9 +49,9 @@ const LandingPage = ({ event }) => {
             <div className="swiper-items">
               {event &&
                 event.map((event) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={event.id}>
                     <li>
-                      <MiniCard key={event.id} event={event} />
+                      <MiniCard event={event} />
                     </li>
                   </SwiperSlide>
                 ))}

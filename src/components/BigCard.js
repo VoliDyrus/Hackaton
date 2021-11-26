@@ -1,59 +1,50 @@
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
-import FavoriteContext from "../contexts/FavoriteContext";
-import CurrentEventsContext from "../contexts/CurrentEventContext";
 import arrow from "../images/arrow.png";
 import { useEffect } from "react/cjs/react.development";
+import { countriesCode } from "../data/countriesData";
 
 function BigCard() {
   const params = useParams();
   const country = params.country;
-  const id = params.id;
+  const currentId = params.id;
 
-  const { currentEvents } = useContext(CurrentEventsContext);
+  const [currentEvent, setCurrentEvent] = useState([]);
 
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [currentEvent, setCurrentEvent] = useState({});
-  const { isFavoriteList, addFavorite, removeFavorite } =
-    useContext(FavoriteContext);
-
-  const currentlyFavorite = isFavoriteList(id);
-
-  const handleClickFavorite = () => {
-    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
-    if (currentlyFavorite) {
-      removeFavorite(id);
-    } else {
-      addFavorite(id, currentEvent);
-    }
-  };
-
-  function updateInfo() {
-    const current = currentEvents.find((elt) => elt.id === id);
-    setCurrentEvent = current;
+  async function updateInfo(selectedCountry, eventId) {
+    let twoLettersCode = countriesCode.find(
+      (country) => country.name === selectedCountry
+    );
+    twoLettersCode = twoLettersCode.code;
+    const response = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    const data = await response.data;
+    setCurrentEvent(data);
   }
-  useEffect(() => {});
+
+  useEffect(() => {
+    updateInfo(country, currentId);
+  }, []);
+
+  console.log(currentEvent);
   return (
     <div>
+      Hello Big Card
       <button className="back-button">
         <NavLink to={`/welcome/${country}`}>
           <img src={arrow} alt="back-button" width="20px" />
         </NavLink>
       </button>
-      <div
-        id="favorite"
-        className={isFavorite ? "isFavorite" : "notFavorite"}
-        onClick={handleClickFavorite}
-      ></div>
-
       <div className="card-name">{currentEvent.name}</div>
       <div className="card-image"></div>
       <img src={currentEvent.images[0].url} alt="" width="500" height="300" />
       <div className="card-locale">
         {currentEvent._embedded.venues[0].address.line1} <br />
-        {currentEvent._embedded.venues[0].address.line2}
+        {currentEvent._embedded.venues[0].address.line2 || " "}
         <br />
       </div>
       <div className="card-time">

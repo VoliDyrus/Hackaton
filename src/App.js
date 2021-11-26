@@ -7,14 +7,14 @@ import Landing from "./components/FirstLanding";
 import Main from "./components/Main";
 
 import { GenresContextProvider } from "./contexts/GenresContext";
-import { CurrentEventsContextProvider } from "./contexts/CurrentEventContext";
+import { CurrentEventContextProvider } from "./contexts/CurrentEventContext";
 import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 import BigCard from "./components/BigCard";
 
 function App() {
   return (
     <GenresContextProvider>
-      <CurrentEventsContextProvider>
+      <CurrentEventContextProvider>
         <FavoriteContextProvider>
           <Router>
             <Routes>
@@ -28,7 +28,7 @@ function App() {
             </Routes>
           </Router>
         </FavoriteContextProvider>
-      </CurrentEventsContextProvider>
+      </CurrentEventContextProvider>
     </GenresContextProvider>
   );
 }

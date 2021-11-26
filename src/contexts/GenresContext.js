@@ -29,7 +29,6 @@ export function GenresContextProvider({ children }) {
           genre.name === "Dance/Electronic"
       );
       newGroup.unshift({ name: "All" });
-      console.log(newGroup);
       setDisplayGenres(newGroup);
     } catch (error) {
       console.log(error);

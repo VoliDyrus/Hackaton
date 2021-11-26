@@ -1,21 +1,21 @@
 import React, { createContext, useState } from "react";
 
-const CurrentEventsContext = createContext({
+const CurrentEventContext = createContext({
   currentEvents: [],
 });
 
-export const CurrentEventsContextProvider = ({ children }) => {
-  const [currentEvents, setCurrentEvents] = useState("");
+export const CurrentEventContextProvider = ({ children }) => {
+  const [currentEvents, setCurrentEvents] = useState([]);
 
   function updateEvents(data) {
     setCurrentEvents(data);
   }
 
   return (
-    <CurrentEventsContext.Provider value={{ currentEvents, updateEvents }}>
+    <CurrentEventContext.Provider value={{ currentEvents, updateEvents }}>
       {children}
-    </CurrentEventsContext.Provider>
+    </CurrentEventContext.Provider>
   );
 };
 
-export default CurrentEventsContext;
+export default CurrentEventContext;
