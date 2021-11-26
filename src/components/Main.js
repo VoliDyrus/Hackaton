@@ -8,8 +8,9 @@ import { countriesCode } from "../data/countriesData";
 
 import "../style/LandingPage.css";
 
-function Main() {
+function Main({ userName }) {
   const params = useParams();
+  console.log(userName);
   const selectedCountry = params.country;
 
   const { displayGenres } = useContext(GenresContext);
@@ -77,7 +78,11 @@ function Main() {
             generalEvents.map((genre) => (
               <>
                 {genre[0].classifications[0].genre.name}
-                <LandingPage event={genre} key={genre.name} />
+                <LandingPage
+                  userName={userName}
+                  event={genre}
+                  key={genre.name}
+                />
               </>
             ))}
           {/*   <CountrySearch /> */}

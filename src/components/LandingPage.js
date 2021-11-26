@@ -13,7 +13,7 @@ import "swiper/modules/navigation/navigation.scss";
 
 SwiperCore.use([Navigation]);
 
-const LandingPage = ({ event }) => {
+const LandingPage = ({ event, userName }) => {
   const params = useParams();
   const selectedCountry = params.country;
 
@@ -21,7 +21,7 @@ const LandingPage = ({ event }) => {
     <section className="total-container">
       <div className="container-top">
         <div className="box1">
-          <h3> Welcome Stranger </h3>
+          <h3> Welcome {userName} </h3>
           <p id="country-selected">{selectedCountry}</p>
         </div>
         <NavLink

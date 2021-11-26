@@ -44,7 +44,11 @@ function MiniCard(props) {
       <div className="mini-card-date">
         date: {props.event.dates.start.localDate}
       </div>
-      <button className="mini-card-button">More Details</button>
+      <button className="mini-card-button">
+        <NavLink to={`/welcome/${selectedCountry}/${props.event.id}`}>
+          More Details
+        </NavLink>
+      </button>
     </div>
   );
 }
