@@ -19,7 +19,7 @@ const LandingPage = ({ event }) => {
       <div className="container-top">
         <div className="box1">
           <h3> Welcome Vania </h3>
-          <p>{selectedCountry}</p>
+          <p id="country-selected">{selectedCountry}</p>
         </div>
         <div className="box2"> Moon / Star </div>
       </div>
