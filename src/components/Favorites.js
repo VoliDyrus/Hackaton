@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import "../style/Favorites.css";
 import arrow from "../images/arrow.png";
 import FavoriteContext from "../contexts/FavoriteContext";
@@ -12,7 +13,9 @@ function Favorites() {
       <header className="fav-header">
         <div className="container-header">
           <button className="back-button">
-            <img src={arrow} alt="back-button" width="20px" />
+            <NavLink to="/">
+              <img src={arrow} alt="back-button" width="20px" />
+            </NavLink>
           </button>
           <div className="container-favorites">
             star
