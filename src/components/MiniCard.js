@@ -18,19 +18,23 @@ function MiniCard(props) {
   };
 
   return (
-    <div className="div-cat1" key={props.event.id}>
+    <div className="div-fav" key={props.event.id}>
       <div
         id="favorite"
         className={isFavorite ? "isFavorite" : "notFavorite"}
         onClick={handleClickFavorite}
       ></div>
+
+      <img
+        className="div-img"
+        src={props.event.images[0].url}
+        alt=""
+        width="110px"
+        height="90px"
+      />
       <div className="card-name">{props.event.name}</div>
-      <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" width="350" height="200" />
-      <div className="card-time">
-        {props.event.dates.start.localDate} <br />
-        {props.event.dates.start.localTime}
-      </div>
+      <div className="card-time">date: {props.event.dates.start.localDate}</div>
+      <button>More Details</button>
     </div>
   );
 }

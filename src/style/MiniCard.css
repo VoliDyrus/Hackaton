@@ -4,12 +4,22 @@
   background-image: url(../images/star-yellow.png);
   background-size: 100%;
   align-self: flex-start;
+  position: absolute;
+  top: 2%;
+  right: 25%;
 }
 
 .notFavorite {
+  position: absolute;
+  top: 2%;
+  right: 25%;
   width: 40px;
   height: 40px;
   background-image: url(../images/star-bw.png);
   background-size: 100%;
   align-self: flex-start;
+}
+
+.div-fav {
+  position: relative;
 }
