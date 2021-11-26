@@ -79,7 +79,7 @@ function Main() {
                 <LandingPage event={genre} country={selectedCountry} />
               </>
             ))}
-          <CountrySearch />
+          {/*   <CountrySearch /> */}
         </div>
       </div>
     </>

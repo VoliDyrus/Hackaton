@@ -11,7 +11,7 @@
 
 .notFavorite {
   position: absolute;
-  top: 2%;
+  top: 12%;
   right: 25%;
   width: 40px;
   height: 40px;
@@ -22,4 +22,66 @@
 
 .div-fav {
   position: relative;
+}
+
+.mini-card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:225px;
+  margin: 6px;
+  -webkit-box-shadow: 8px 7px 19px -3px #000000; 
+  box-shadow: 8px 7px 19px -3px #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+.mini-card-container:hover {
+  background: #dbd4e4;
+  transform: scale(1.05);
+}
+
+.mini-card-title{
+  font-weight: bold;
+  padding: 5px;
+  padding-top: 8px;
+  color:rgb(9, 85, 226);
+}
+
+.mini-card-separator{
+  width:40%;
+  margin-top:3px;
+  margin-bottom:4px;
+  border: 1px solid blue;
+}
+
+.mini-card-date{
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.mini-card-button{
+  box-shadow: 6px 4px 12px 1px #858c8f;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:2px 18px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.mini-card-button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.mini-card-button:active {
+	position:relative;
+	top:1px;
 }

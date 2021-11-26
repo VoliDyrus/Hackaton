@@ -1,18 +1,75 @@
 body {
   margin: 0;
+  background-image: linear-gradient(to right, #e7f6f8, #ceecf3, #b6e2ef, #9fd7ed, #88cbec);
 }
 
 .fav-header {
-  display: flex;
   max-width: auto;
-  max-height: 15%;
+  height: 50px;
+  border-bottom: 1px solid lightgrey;
+  background: rgb(17, 153, 202);
+  background: linear-gradient(
+    to right,
+    rgba(17, 153, 173, 1) 0%,
+    rgba(170, 32, 98, 1) 83%
+  );
+  background-size: 200% 200%;
+  animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container-header {
+  display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
 .back-button {
-  width: 15px;
-  height: 15px;
+  display: flex;
+  width: 60px;
+  height: 40px;
+  padding:15px;
+  border:none;
+  border-radius: 20px;
+  color:rgb(155, 183, 201);
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.favourite-container {
+  background-image: linear-gradient(to right, #e7f6f8, #ceecf3, #b6e2ef, #9fd7ed, #88cbec);
+}
+
+.row{
+  display: inline-flex;
+}
+
+.favourite-msg{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.container-favorites{
+  display: flex;
+  align-items: center;
+}
+
+.favorites-title{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:white;
+  font-size: 20px;
+  font-weight: 300;
+  padding-top: 5px;
 }

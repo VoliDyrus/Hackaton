@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import "../style/Favorites.css";
 import arrow from "../images/arrow.png";
 import FavoriteContext from "../contexts/FavoriteContext";
@@ -12,17 +13,17 @@ function Favorites() {
     <div>
       <header className="fav-header">
         <div className="container-header">
-          <NavLink to="/welcome/:country">
-            <button className="back-button">
-              <img src={arrow} alt="back-button" width="20px" />
-            </button>
-          </NavLink>
+          <button className="back-button">
+            <NavLink to="/">
+              <img src={arrow} alt="back-button" width="30px" />
+            </NavLink>
+          </button>
           <div className="container-favorites">
-            star
-            <p className="favorites-title">Your saved Events:</p>
+            <p className="favorites-title">Your saved Events</p>
           </div>
         </div>{" "}
       </header>
+      <br />
       <div className="favourite-container">
         {Object.values(favoritesList).length > 0 ? (
           <div className="row">
@@ -33,7 +34,10 @@ function Favorites() {
             ))}
           </div>
         ) : (
-          <h1>You don't have any saved events</h1>
+          <p className="favourite-msg">
+            Ups, you didn't save any events. Return to the last page and pick
+            your favourite choices
+          </p>
         )}
       </div>
     </div>
