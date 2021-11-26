@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import "../style/Favorites.css";
-import star from "../images/favourite.png";
 import arrow from "../images/arrow.png";
 import FavoriteContext from "../contexts/FavoriteContext";
 import MiniCard from "./MiniCard";
@@ -13,10 +13,12 @@ function Favorites() {
       <header className="fav-header">
         <div className="container-header">
           <button className="back-button">
-            <img src={arrow} alt="back-button" width="20px" />
+            <NavLink to="/">
+              <img src={arrow} alt="back-button" width="20px" />
+            </NavLink>
           </button>
           <div className="container-favorites">
-            <img src={star} alt="star" width="20px" />
+            star
             <p className="favorites-title">Your saved Events:</p>
           </div>
         </div>{" "}

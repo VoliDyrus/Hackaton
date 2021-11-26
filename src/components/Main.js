@@ -40,7 +40,7 @@ function Main() {
           );
           const data = await response.data;
           const dataFinal = data._embedded.events;
-  
+
           if (dataFinal) {
             setGeneralEvents((prevList) => {
               const newList = [...prevList, dataFinal];
@@ -72,14 +72,14 @@ function Main() {
     <>
       <div className="container-main">
         <div className="wrapper-main">
-      {generalEvents.length > 0 &&
-        generalEvents.map((genre) => (
-          <>
-            {genre[0].classifications[0].genre.name}
-            <LandingPage event={genre} country={selectedCountry} />
-          </>
-        ))}
-          <CountrySearch />
+          {generalEvents.length > 0 &&
+            generalEvents.map((genre) => (
+              <>
+                {genre[0].classifications[0].genre.name}
+                <LandingPage event={genre} country={selectedCountry} />
+              </>
+            ))}
+          {/*   <CountrySearch /> */}
         </div>
       </div>
     </>
