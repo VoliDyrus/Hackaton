@@ -36,9 +36,9 @@ const LandingPage = ({ event }) => {
             spaceBetween={1}
             breakpoints={{
               320: { slidesPerView: 2 },
-              375: { slidesPerView: 3 },
-              480: { slidesPerView: 4 },
-              768: { slidesPerView: 3 },
+              375: { slidesPerView: 2 },
+              480: { slidesPerView: 3 },
+              768: { slidesPerView: 4 },
               1024: { slidesPerView: 5 },
             }}
           >
