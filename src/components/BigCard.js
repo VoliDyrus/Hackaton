@@ -1,16 +1,28 @@
 import React from "react";
-import star from "../images/favourite.png";
+import React, { useState, useContext } from "react";
+import FavoriteContext from "../contexts/FavoriteContext";
 
 function BigCard(props) {
+  const [isFavorite, setIsFavorite] = useState(props.isFavorite);
+  const { isFavoriteList, addFavorite, removeFavorite } =
+    useContext(FavoriteContext);
+  const currentlyFavorite = isFavoriteList(props.event.id);
+
+  const handleClickFavorite = () => {
+    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
+    if (currentlyFavorite) {
+      removeFavorite(props.event.id);
+    } else {
+      addFavorite(props.event.id, props.event);
+    }
+  };
   return (
     <div>
-      <img
-        src={star}
-        alt="star"
-        width="25px"
-        height="25px"
-        onClick={(element) => (element.target.style.backgroundColor = "yellow")}
-      ></img>
+      <div
+        id="favorite"
+        className={isFavorite ? "isFavorite" : "notFavorite"}
+        onClick={handleClickFavorite}
+      ></div>
       <div className="card-name">{props.event.name}</div>
       <div className="card-image"></div>
       <img src={props.event.images[0].url} alt="" width="500" height="300" />

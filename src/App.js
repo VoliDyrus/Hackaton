@@ -11,13 +11,6 @@ function App() {
     <GenresContextProvider>
       <FavoriteContextProvider>
         <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/favorites">Favorites</Link>
-              </li>
-            </ul>
-          </nav>
           <Routes>
             <Route path="/*" element={<Landing />} />
             <Route path="/welcome/:country" element={<Main />} />

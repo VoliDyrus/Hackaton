@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "../style/Favorites.css";
-import star from "../images/favourite.png";
 import arrow from "../images/arrow.png";
 import FavoriteContext from "../contexts/FavoriteContext";
 import MiniCard from "./MiniCard";
@@ -16,7 +15,7 @@ function Favorites() {
             <img src={arrow} alt="back-button" width="20px" />
           </button>
           <div className="container-favorites">
-            <img src={star} alt="star" width="20px" />
+            star
             <p className="favorites-title">Your saved Events:</p>
           </div>
         </div>{" "}

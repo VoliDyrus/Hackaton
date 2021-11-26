@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import "../style/LandingPage.css";
 import MiniCard from "./MiniCard";
@@ -21,7 +22,11 @@ const LandingPage = ({ event }) => {
           <h3> Welcome Vania </h3>
           <p id="country-selected">{selectedCountry}</p>
         </div>
-        <div className="box2"> Moon / Star </div>
+        <NavLink to="/favorites">
+          <div id="favorite" className="isFavorite">
+            {" "}
+          </div>
+        </NavLink>
       </div>
       <div className="divbody">
         <ul className="search-ul">
