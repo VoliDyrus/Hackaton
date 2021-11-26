@@ -37,12 +37,11 @@ function Landing() {
 
   return (
     <div className="page-display">
-      <div className="first-container">
+      <div className="first-container slideshow">
         <div className="first-container-text">
-          <h2>Know what to see, everyhere</h2>
-        </div>
-        <div>
-
+          <h2>Meet your Music Hero, Everywhere, Anytime</h2><br />
+          <p className="paragraph-firstcontainer">Keep yourself updated with the last informations.</p>
+          <p className="paragraph-firstcontainer">Find where your favourite artists, where they are and when they will act.</p>
         </div>
         
       </div>

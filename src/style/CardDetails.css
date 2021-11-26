@@ -1,0 +1,59 @@
+:root {
+  --clr-black: hsl(0, 0%, 0%, 1);
+  --clr-white: hsl(360, 100%, 100%, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background-test {
+  height: 100vh;
+  width: auto;
+}
+
+.slider {
+  height: 100vh;
+  width: auto;
+  background: rgb(17, 153, 202);
+  background: linear-gradient(
+    191deg,
+    rgba(17, 153, 173, 1) 0%,
+    rgba(170, 32, 98, 1) 83%
+  );
+  border-top-left-radius: 100px 40px;
+  border-top-right-radius: 100px 40px;
+  /*transition: 0.5s;
+  transform: translateY(83%);
+}
+.slider:hover {
+  transform: translateY(40%);
+}
+*/
+}
+.slider-content {
+  width: 30ch;
+  right: calc(50% - 15ch);
+  position: absolute;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.search-bar {
+  background-color: #c1c9d4;
+  border-radius: 15px;
+  padding: 2px;
+}
+
+.slider-search-btn {
+  background-color: azure;
+  width: 30px;
+
+  height: 30px;
+  background: url("../assets/search.png") no-repeat center;
+  background-size: contain;
+  top: 43px;
+  border: 0;
+}
