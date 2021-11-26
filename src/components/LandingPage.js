@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+import { countriesCode } from "../data/countriesData";
 import MiniCard from "./MiniCard";
-import GenresContext from "../contexts/GenresContext";
 import "../style/LandingPage.css";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -17,12 +18,44 @@ const LandingPage = ({ event, userName }) => {
   const params = useParams();
   const selectedCountry = params.country;
 
+  const [error, setError] = useState(false);
+
+  let navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const country = e.target.elements.country.value;
+    console.log(country);
+    const validateCountry = countriesCode.findIndex(
+      (elt) => elt.name === country
+    );
+
+    console.log(validateCountry);
+    if (validateCountry !== -1) {
+      navigate(`/welcome/${country}`);
+    } else {
+      setError(true);
+    }
+  }
+
   return (
     <section className="total-container">
       <div className="container-top">
         <div className="box1">
-          <h3> Welcome {userName} </h3>
-          <p id="country-selected">{selectedCountry}</p>
+          <span> Welcome {userName} </span>
+          <span id="country-selected">{selectedCountry}</span>
+          <form classname="form-style" onSubmit={handleSubmit}>
+            <input
+              className="input-container"
+              type="text"
+              placeholder="Change Country"
+              name="country"
+            />
+            <input className="btn-container" type="submit" value="Search" />
+            {error && (
+              <span style={{ color: "red" }}> Country is not valid</span>
+            )}
+          </form>
         </div>
         <NavLink
           to={`/welcome/${selectedCountry}/favorites`}
