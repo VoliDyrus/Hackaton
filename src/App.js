@@ -7,28 +7,22 @@ import Landing from "./components/FirstLanding";
 import Main from "./components/Main";
 
 import { GenresContextProvider } from "./contexts/GenresContext";
-import { CurrentEventContextProvider } from "./contexts/CurrentEventContext";
 import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 import BigCard from "./components/BigCard";
 
 function App() {
   return (
     <GenresContextProvider>
-      <CurrentEventContextProvider>
-        <FavoriteContextProvider>
-          <Router>
-            <Routes>
-              <Route path="/*" element={<Landing />} />
-              <Route path="/welcome/:country" element={<Main />} />
-              <Route
-                path="/welcome/:country/favorites"
-                element={<Favorites />}
-              />
-              <Route path="/welcome/:country/:id" element={<BigCard />} />
-            </Routes>
-          </Router>
-        </FavoriteContextProvider>
-      </CurrentEventContextProvider>
+      <FavoriteContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/*" element={<Landing />} />
+            <Route path="/welcome/:country" element={<Main />} />
+            <Route path="/welcome/:country/favorites" element={<Favorites />} />
+            <Route path="/welcome/:country/:id" element={<BigCard />} />
+          </Routes>
+        </Router>
+      </FavoriteContextProvider>
     </GenresContextProvider>
   );
 }
