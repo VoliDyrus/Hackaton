@@ -33,10 +33,8 @@ function MiniCard(props) {
         height="90px"
       />
       <div className="card-name">{props.event.name}</div>
-      <div className="card-time">
-        date: {props.event.dates.start.localDate} <br />
-        time: {props.event.dates.start.localTime}
-      </div>
+      <div className="card-time">date: {props.event.dates.start.localDate}</div>
+      <button>More Details</button>
     </div>
   );
 }

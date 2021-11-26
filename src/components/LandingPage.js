@@ -22,7 +22,7 @@ const LandingPage = ({ event }) => {
           <h3> Welcome Vania </h3>
           <p id="country-selected">{selectedCountry}</p>
         </div>
-        <NavLink to="/favorites">
+        <NavLink to="/favorites" className="favourites-tab">
           <div id="favorite" className="isFavorite">
             {" "}
           </div>

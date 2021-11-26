@@ -20,9 +20,12 @@ body {
   text-align: center;
 }
 
+.favourites-tab {
+}
+
 .container-top {
   width: 100%;
-  height: 60px;
+  height: 12%;
 
   display: flex;
   justify-content: space-between;
