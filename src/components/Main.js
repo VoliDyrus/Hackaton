@@ -76,7 +76,7 @@ function Main() {
           {generalEvents.length > 0 &&
             generalEvents.map((genre) => (
               <>
-                {genre[0].classifications[0].genre.name}
+                <h3 className="genre-fonts">{genre[0].classifications[0].genre.name}</h3>
                 <LandingPage event={genre} key={genre.name} />
               </>
             ))}

@@ -39,9 +39,9 @@ function Landing() {
     <div className="page-display">
       <div className="first-container slideshow">
         <div className="first-container-text">
-          <h2>Meet your Music Hero, Everywhere, Anytime</h2><br />
+          <h2 className="title-login-page">Meet your Favourite Musician, Everywhere, Anytime</h2><br />
           <p className="paragraph-firstcontainer">Keep yourself updated with the last informations.</p>
-          <p className="paragraph-firstcontainer">Find where your favourite artists, where they are and when they will act.</p>
+          <p className="paragraph-firstcontainer">Find your favourite artists, where they are and when they will act.</p>
         </div>
         
       </div>
@@ -75,10 +75,10 @@ function Landing() {
           </datalist>
           <br />
           {error && (
-            <span style={{ color: "red" }}>Country is not valid</span>
+            <span style={{color: "red" }}>Your inputs aren't valid!</span>
           )}
           <br />
-          <button className="btn-container" type="submit">Enter</button>
+          <button className="btn-container" ty pe="submit">Enter</button>
         </form>
         <div className="social-media">
           <div className="wrapper">

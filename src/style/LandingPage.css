@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+/*------Login Page Google fonts - for title and little description ----------------*/
+@import url('https://fonts.googleapis.com/css2?family=Federo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Federo&display=swap');
+.genre-fonts{  font-family: 'Federo', sans-serif;}
 
 .isFavorite {
   width: 40px;
@@ -166,6 +170,12 @@ p {
 .img-card {
   border-top-right-radius: 80px;
 }
+
+#country-selected {
+  text-decoration: underline;
+}
+
+/* --------------------------- login page from here ------------------------- */
 .page-display {
   display: flex;
   flex-direction: column;
@@ -178,51 +188,8 @@ p {
     rgba(17, 153, 173, 1) 0%,
     rgb(197, 131, 163) 83%
   );
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-#country-selected {
-  text-decoration: underline;
-}
-
-/* --------------------------- login page from here ------------------------- */
-.page-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background: rgb(17, 153, 202);
-  background: linear-gradient(
-    to right,
-    rgba(17, 153, 173, 1) 0%,
-    rgba(170, 32, 98, 1) 83%
-  );
   background-size: 400% 400%;
   animation: gradient 20s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .first-container {
@@ -305,7 +272,7 @@ p {
   height: 40px;
   width: 40px;
   margin: 0 5px;
-  opacity: 0.7;
+  opacity: 1;
   overflow: hidden;
   border-radius: 50px;
   cursor: pointer;
@@ -343,7 +310,7 @@ p {
   font-size: 14px;
   line-height: 40px;
   transition: all 0.3s ease-out;
-  color: #474f40;
+  color: #181a18;
 }
 .wrapper .button:hover .icon i {
   color: #fff;
@@ -356,15 +323,15 @@ p {
   transition: all 0.3s ease-out;
 }
 .wrapper .button:nth-child(1) span {
-  color: #4267b2;
+  color: #1f2022;
   font-size: 10px;
 }
 .wrapper .button:nth-child(2) span {
-  color: #494646;
+  color: #1f2022;
   font-size: 10px;
 }
 .wrapper .button:nth-child(3) span {
-  color: #333;
+  color: #1f2022;
   font-size: 10px;
 }
 
@@ -421,10 +388,20 @@ p {
     padding: 15px 15px;
     color: white;
     z-index: 5;
+    margin:5px;
+    max-width: calc(100vw - 450px);
+  }
+
+  .title-login-page{
+    font-family: 'Federo', sans-serif;
+    margin:0px;
   }
 
   .paragraph-firstcontainer {
-    font-size: 18px;
-    padding: 5px;
+    font-family: 'Federo', sans-serif;
+    font-size: 20px;
+    padding: 2px;
+    margin:0px;
+    max-width: calc(100vw - 450px);
   }
 }
