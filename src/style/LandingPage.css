@@ -7,6 +7,14 @@ body {
   flex-direction: column;
 }
 
+.isFavorite {
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/star-yellow.png);
+  background-size: 100%;
+  align-self: flex-start;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -112,153 +120,151 @@ p {
   background-color: white;
 }
 
-.page-display{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width:100vw;
-    height: 100vh;
-    background: rgb(17, 153, 202);
-    background: linear-gradient(
-      to right,
-      rgba(17, 153, 173, 1) 0%,
-      rgba(170, 32, 98, 1) 83%
-    );
-      background-size: 400% 400%;
-      animation: gradient 20s ease infinite;
-    }
-    
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-
-.logo-props{
-    width: 80%;
-}
-.form-style{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.input-container{
-    max-width:500px;
-    min-width: 250px;
-    padding: 8px;
-    font-size: 15px;
-    border-width: 3px;
-    border-color: #77e0d1;
-    background-color: #f0e7e7;
-    color: #231f1f;
-    border-style: hidden;
-    border-radius: 7px;
-    box-shadow: 2px 2px 10px rgba(66,66,66,.37);
-    margin-bottom: 10px;
+.page-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(17, 153, 202);
+  background: linear-gradient(
+    to right,
+    rgba(17, 153, 173, 1) 0%,
+    rgba(170, 32, 98, 1) 83%
+  );
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
 }
 
-.btn-container{
-    max-width:500px;
-    min-width: 250px;
-    box-shadow:inset 0px 3px 10px -13px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color:#f0e7e7;
-	border-radius:17px;
-	border:2px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Georgia;
-	font-size:14px;
-	font-weight:bold;
-	padding:10px 29px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-    
+
+.logo-props {
+  width: 80%;
+}
+.form-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.input-container {
+  max-width: 500px;
+  min-width: 250px;
+  padding: 8px;
+  font-size: 15px;
+  border-width: 3px;
+  border-color: #77e0d1;
+  background-color: #f0e7e7;
+  color: #231f1f;
+  border-style: hidden;
+  border-radius: 7px;
+  box-shadow: 2px 2px 10px rgba(66, 66, 66, 0.37);
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  max-width: 500px;
+  min-width: 250px;
+  box-shadow: inset 0px 3px 10px -13px #ffffff;
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  background-color: #f0e7e7;
+  border-radius: 17px;
+  border: 2px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 29px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+
 .btn-container:hover {
-    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-	background-color:#bab1ba;
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
 }
 .btn-container:active {
-    position:relative;
-    top:1px;
+  position: relative;
+  top: 1px;
 }
 
-.social-media{
-    position: fixed;
-    bottom: 40px;
-  
-  }
+.social-media {
+  position: fixed;
+  bottom: 40px;
+}
 .wrapper .button {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    margin: 0 5px;
-    opacity: 0.7;
-    overflow: hidden;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-out;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin: 0 5px;
+  opacity: 0.7;
+  overflow: hidden;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
 }
 .wrapper .button:hover {
-    width: 110px;
+  width: 110px;
 }
 .wrapper .button .icon {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    border-radius: 50px;
-    box-sizing: border-box;
-    line-height: 40px;
-    transition: all 0.3s ease-out;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 40px;
+  transition: all 0.3s ease-out;
 }
 .wrapper .button:nth-child(1):hover .icon {
-    background: #4267b2;
+  background: #4267b2;
 }
 .wrapper .button:nth-child(2):hover .icon {
-    background: #e1306c;
+  background: #e1306c;
 }
 .wrapper .button:nth-child(3):hover .icon {
-    background: #333;
+  background: #333;
 }
 
 .wrapper .button .icon i {
-    font-size: 14px;
-    line-height: 40px;
-    transition: all 0.3s ease-out;
-    color: white;
+  font-size: 14px;
+  line-height: 40px;
+  transition: all 0.3s ease-out;
+  color: white;
 }
 .wrapper .button:hover .icon i {
-    color: #fff;
+  color: #fff;
 }
 .wrapper .button span {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 40px;
-    margin-left: 10px;
-    transition: all 0.3s ease-out;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 40px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
 }
 .wrapper .button:nth-child(1) span {
-    color: #4267b2;
-    font-size: 10px;
+  color: #4267b2;
+  font-size: 10px;
 }
 .wrapper .button:nth-child(2) span {
-    color: #494646;
-    font-size: 10px;
+  color: #494646;
+  font-size: 10px;
 }
 .wrapper .button:nth-child(3) span {
-    color: #333;
-    font-size: 10px;
+  color: #333;
+  font-size: 10px;
 }
