@@ -6,8 +6,6 @@ import LandingPage from "./LandingPage";
 import GenresContext from "../contexts/GenresContext";
 import { countriesCode } from "../data/countriesData";
 
-import "../style/LandingPage.css";
-
 function Main({ userName }) {
   const params = useParams();
   console.log(userName);

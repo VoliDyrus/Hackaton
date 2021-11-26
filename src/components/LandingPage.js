@@ -42,19 +42,21 @@ const LandingPage = ({ event, userName }) => {
     <section className="total-container">
       <div className="container-top">
         <div className="box1">
-          <span> Welcome {userName} </span>
+          <span className="h3"> Welcome {userName} </span>
           <span id="country-selected">{selectedCountry}</span>
           <form classname="form-style" onSubmit={handleSubmit}>
-            <input
-              className="input-container"
-              type="text"
-              placeholder="Change Country"
-              name="country"
-            />
-            <input className="btn-container" type="submit" value="Search" />
-            {error && (
-              <span style={{ color: "red" }}> Country is not valid</span>
-            )}
+            <div className="btn-maindiv">
+              <input
+                className="input-container2"
+                type="text"
+                placeholder="Change Country"
+                name="country"
+              />
+              <input className="btn-container2" type="submit" value="" />
+              {error && (
+                <span style={{ color: "red" }}> Country is not valid</span>
+              )}
+            </div>
           </form>
         </div>
         <NavLink
