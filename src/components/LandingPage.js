@@ -94,17 +94,6 @@ const LandingPage = ({ event, userName }) => {
           </Swiper>
         </ul>
       </div>
-
-      {/*   <div className="container-bottom">
-        <div className="country"> search country</div>
-        <div className="categories"> search category</div>
-      </div> */}
-
-      {/* <h1>hello</h1>
-      <div>
-        {miniList &&
-          miniList.map((event) => <MiniCard key={event.id} event={event} />)}
-      </div> */}
     </section>
   );
 };
