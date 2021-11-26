@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
 import "../style/Favorites.css";
+
 import FavoriteContext from "../contexts/FavoriteContext";
 import MiniCard from "./MiniCard";
 import returnArrow from "../images/returnArrow.png";
