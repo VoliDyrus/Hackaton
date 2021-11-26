@@ -1,7 +1,6 @@
 import React from "react";
 import React, { useState, useContext } from "react";
 import FavoriteContext from "../contexts/FavoriteContext";
-
 function BigCard(props) {
   const [isFavorite, setIsFavorite] = useState(props.isFavorite);
   const { isFavoriteList, addFavorite, removeFavorite } =
