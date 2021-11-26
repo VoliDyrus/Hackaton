@@ -4,7 +4,6 @@ import "../style/Favorites.css";
 import arrow from "../images/arrow.png";
 import FavoriteContext from "../contexts/FavoriteContext";
 import MiniCard from "./MiniCard";
-import { NavLink } from "react-router-dom";
 
 function Favorites() {
   const { favoritesList } = useContext(FavoriteContext);
