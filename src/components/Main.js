@@ -6,10 +6,9 @@ import LandingPage from "./LandingPage";
 import GenresContext from "../contexts/GenresContext";
 import { countriesCode } from "../data/countriesData";
 
-import "../style/LandingPage.css";
-
-function Main() {
+function Main({ userName }) {
   const params = useParams();
+  console.log(userName);
   const selectedCountry = params.country;
 
   const { displayGenres } = useContext(GenresContext);
@@ -31,7 +30,9 @@ function Main() {
           );
           let data = await response.data;
           data = data._embedded.events;
-          setGeneralEvents([data]);
+          let newArray = [];
+          newArray[0] = data;
+          setGeneralEvents(newArray);
         } else {
           let genreId = displayGenres.find((elt) => elt.name === genre);
           genreId = genreId.id;
@@ -71,16 +72,22 @@ function Main() {
   return (
     <>
       <div className="container-main">
-        Hello, Big
+        <h3 className="upcoming-events">Upcoming events </h3>
         <div className="wrapper-main">
           {generalEvents.length > 0 &&
-            generalEvents.map((genre) => (
+            generalEvents.map((genre, index) => (
               <>
-                <h3 className="genre-fonts">{genre[0].classifications[0].genre.name}</h3>
-                <LandingPage event={genre} key={genre.name} />
+                {index !== 0 && (
+                  <h3>{genre[0].classifications[0].genre.name}</h3>
+                )}
+                <LandingPage
+                  event={genre}
+                  key={genre.name}
+                  genre={index}
+                  userName={userName}
+                />
               </>
             ))}
-          {/*   <CountrySearch /> */}
         </div>
       </div>
     </>

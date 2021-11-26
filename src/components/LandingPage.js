@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+import { countriesCode } from "../data/countriesData";
 import MiniCard from "./MiniCard";
-import GenresContext from "../contexts/GenresContext";
+
 import "../style/LandingPage.css";
 
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
@@ -13,16 +15,52 @@ import "swiper/modules/navigation/navigation.scss";
 
 SwiperCore.use([Navigation]);
 
-const LandingPage = ({ event }) => {
+const LandingPage = ({ event, userName, genre }) => {
   const params = useParams();
   const selectedCountry = params.country;
+
+  console.log(genre);
+
+  const [error, setError] = useState(false);
+
+  let navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const country = e.target.elements.country.value;
+    console.log(country);
+    const validateCountry = countriesCode.findIndex(
+      (elt) => elt.name === country
+    );
+
+    console.log(validateCountry);
+    if (validateCountry !== -1) {
+      navigate(`/welcome/${country}`);
+    } else {
+      setError(true);
+    }
+  }
 
   return (
     <section className="total-container">
       <div className="container-top">
         <div className="box1">
-          <h3> Welcome Stranger </h3>
-          <p id="country-selected">{selectedCountry}</p>
+          <span className="h3"> Welcome {userName} </span>
+          <span id="country-selected">{selectedCountry}</span>
+          <form classname="form-style" onSubmit={handleSubmit}>
+            <div className="btn-maindiv">
+              <input
+                className="input-container2"
+                type="text"
+                placeholder="Change Country"
+                name="country"
+              />
+              <input className="btn-container2" type="submit" value="" />
+              {error && (
+                <span style={{ color: "red" }}> Country is not valid</span>
+              )}
+            </div>
+          </form>
         </div>
         <NavLink
           to={`/welcome/${selectedCountry}/favorites`}
@@ -61,17 +99,6 @@ const LandingPage = ({ event }) => {
           </Swiper>
         </ul>
       </div>
-
-      {/*   <div className="container-bottom">
-        <div className="country"> search country</div>
-        <div className="categories"> search category</div>
-      </div> */}
-
-      {/* <h1>hello</h1>
-      <div>
-        {miniList &&
-          miniList.map((event) => <MiniCard key={event.id} event={event} />)}
-      </div> */}
     </section>
   );
 };

@@ -8,9 +8,12 @@
 .isFavorite {
   width: 40px;
   height: 40px;
+  margin-right: 3.5vw;
   background-image: url(../images/star.png);
   background-size: 100%;
   align-self: flex-start;
+  border: 2.5px solid #fef5f9;
+  box-shadow: 4px 6px 3px -1px black;
 }
 
 .App {
@@ -23,16 +26,26 @@
   right: 5%;
   top: 15%;
 }
+.upcoming-events {
+  position: absolute;
+  top: 14%;
+}
 
 .container-main {
-  background-image: linear-gradient(
+  /*   background-image: linear-gradient(
     to right,
     #e7f6f8,
     #ceecf3,
     #b6e2ef,
     #9fd7ed,
-    #88cbec
+    #d2e8f3
+  ); */
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255) 0%,
+    rgb(201 234 255) 83%
   );
+  padding-top: 109px;
 }
 
 .container-top {
@@ -52,7 +65,8 @@
   background-size: 200% 200%;
   animation: gradient 20s ease infinite;
   -webkit-box-shadow: -2px 7px 15px 0px #000000;
-  box-shadow: -2px -6px 13px 0px #000000;
+  box-shadow: 3px -3px 13px 0px #000000;
+  border-bottom-left-radius: 15px;
 }
 
 @keyframes gradient {
@@ -68,7 +82,7 @@
 }
 
 .box1 {
-  width: 30%;
+  width: 60%;
   height: 100%;
   /* background-color: blue; */
   color: white;
@@ -76,6 +90,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.h3 {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+span#country-selected {
+  margin-left: 10px;
 }
 
 p {
@@ -89,7 +112,6 @@ p {
 }
 
 .divbody {
-  margin-top: 70px;
   height: 100%;
 }
 
@@ -133,35 +155,16 @@ p {
   width: 100px;
 }
 
-/* .search-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-} */
-
-.total-container {
+/* .total-container {
   height: 50%;
-  background-color: violet;
-}
+} */
 
 .swiper-items {
   width: 100%;
 }
 
 .search-ul {
-  background-image: linear-gradient(
-    to right,
-    #e7f6f8,
-    #ceecf3,
-    #b6e2ef,
-    #9fd7ed,
-    #88cbec
-  );
+  padding-left: 0;
 }
 
 .div-img {
@@ -213,10 +216,9 @@ p {
   margin-bottom: 10px;
 }
 
-.input-container {
-  max-width: 500px;
-  min-width: 250px;
-  padding: 8px;
+.input-container2 {
+  width: 36vw;
+  padding: 6px;
   font-size: 15px;
   border-width: 3px;
   border-color: #77e0d1;
@@ -226,29 +228,38 @@ p {
   border-radius: 7px;
   box-shadow: 2px 2px 10px rgba(66, 66, 66, 0.37);
   margin-bottom: 10px;
+  margin-top: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .img-bg {
   display: none;
 }
 
-.btn-container {
-  max-width: 500px;
-  min-width: 250px;
+.btn-maindiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-container2 {
+  width: 30px;
+  height: 30px;
+  padding: 5px 10px;
   box-shadow: inset 0px 3px 10px -13px #ffffff;
   background: linear-gradient(to bottom, #f0e7e7 5%, #f6f6f6 100%);
   background-color: #f0e7e7;
-  border-radius: 17px;
+  background-image: url(../images/magnifying-glass2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
   border: 2px solid #dcdcdc;
   display: inline-block;
   cursor: pointer;
   color: #666666;
-  font-family: Georgia;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 10px 29px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #ffffff;
+  margin-top: 7.5px;
 }
 
 .btn-container:hover {
@@ -406,5 +417,23 @@ p {
     padding: 2px;
     margin:0px;
     max-width: calc(100vw - 450px);
+  }
+
+  .input-container2 {
+    width: 125px;
+    padding: 8px;
+  }
+
+  .btn-container2 {
+    width: 35px;
+    height: 35px;
+    padding: 5px 15px;
+    margin-top: 6px;
+  }
+
+  .isFavorite {
+    width: 50px;
+    height: 50px;
+    margin-right: 1.5vw;
   }
 }
