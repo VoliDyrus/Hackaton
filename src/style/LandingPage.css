@@ -1,11 +1,5 @@
-body {
-  background-color: rgb(226, 159, 159);
-  display: flex;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  flex-direction: column;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 .App {
   font-family: sans-serif;
@@ -115,16 +109,14 @@ p {
 .page-display{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     width:100vw;
     height: 100vh;
-    background: rgb(17, 153, 202);
+    background: rgb(238,174,202);
     background: linear-gradient(
       to right,
-      rgba(17, 153, 173, 1) 0%,
-      rgba(170, 32, 98, 1) 83%
-    );
+      rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)
+    ;
       background-size: 400% 400%;
       animation: gradient 20s ease infinite;
     }
@@ -140,7 +132,16 @@ p {
         background-position: 0% 50%;
       }
     }
+.first-container{
+    display: none;
+}
 
+.second-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+}
 
 .logo-props{
     width: 80%;
@@ -166,11 +167,15 @@ p {
     margin-bottom: 10px;
 }
 
+.img-bg{
+    display:none;
+}
+
 .btn-container{
     max-width:500px;
     min-width: 250px;
     box-shadow:inset 0px 3px 10px -13px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #f0e7e7 5%, #f6f6f6 100%);
 	background-color:#f0e7e7;
 	border-radius:17px;
 	border:2px solid #dcdcdc;
@@ -199,7 +204,7 @@ p {
     bottom: 40px;
   
   }
-.wrapper .button {
+  .wrapper .button {
     display: inline-block;
     height: 40px;
     width: 40px;
@@ -210,11 +215,11 @@ p {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-}
-.wrapper .button:hover {
+  }
+  .wrapper .button:hover {
     width: 110px;
-}
-.wrapper .button .icon {
+  }
+  .wrapper .button .icon {
     display: inline-block;
     height: 40px;
     width: 40px;
@@ -223,42 +228,82 @@ p {
     box-sizing: border-box;
     line-height: 40px;
     transition: all 0.3s ease-out;
-}
-.wrapper .button:nth-child(1):hover .icon {
+  }
+  .wrapper .button:nth-child(1):hover .icon {
     background: #4267b2;
-}
-.wrapper .button:nth-child(2):hover .icon {
+  }
+  
+  .wrapper .button:nth-child(2):hover .icon {
     background: #e1306c;
-}
-.wrapper .button:nth-child(3):hover .icon {
+  }
+  .wrapper .button:nth-child(3):hover .icon {
     background: #333;
-}
-
-.wrapper .button .icon i {
+  }
+  
+  .wrapper .button .icon i {
     font-size: 14px;
     line-height: 40px;
     transition: all 0.3s ease-out;
-    color: white;
-}
-.wrapper .button:hover .icon i {
+    color: #474f40;
+  }
+  .wrapper .button:hover .icon i {
     color: #fff;
-}
-.wrapper .button span {
+  }
+  .wrapper .button span {
     font-size: 20px;
     font-weight: 500;
     line-height: 40px;
     margin-left: 10px;
     transition: all 0.3s ease-out;
-}
-.wrapper .button:nth-child(1) span {
+  }
+  .wrapper .button:nth-child(1) span {
     color: #4267b2;
     font-size: 10px;
-}
-.wrapper .button:nth-child(2) span {
+  }
+  .wrapper .button:nth-child(2) span {
     color: #494646;
     font-size: 10px;
-}
-.wrapper .button:nth-child(3) span {
+  }
+  .wrapper .button:nth-child(3) span {
     color: #333;
     font-size: 10px;
-}
+  }
+
+  @media screen and (min-width: 450px) {
+    .page-display {
+      flex-direction: row;
+    }
+    .first-container{
+        display: flex;
+        height: 100%;
+        width: calc(100vw - 450px);
+        background-image: url("../images/microbg.jpg");
+        background-size: cover;
+        opacity:0.6;
+    }
+    .second-container{
+        float:right;
+        width:450px;
+        justify-content: center;
+        z-index: 5;
+        background: rgb(238,174,202);
+        background: linear-gradient(
+        to right,
+        rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)
+        ;
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+        }
+        
+        @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+  }

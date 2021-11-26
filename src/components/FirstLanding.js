@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { countriesCode } from "../data/countriesData";
-import "../style/LandingPage.css"
+import "../style/LandingPage.css";
 import logo from "../images/musicMeet.png";
+import microbg from "../images/microbg.jpg";
 
 function Landing() {
   const [filterType, setFilterType] = useState("");
@@ -36,6 +37,10 @@ function Landing() {
 
   return (
     <div className="page-display">
+      <div className="first-container">
+        
+      </div>
+      <div className="second-container">
         <img className="logo-props" src={logo} alt="" />
         <br />
         <form classname="form-style" onSubmit={handleSubmit}>
@@ -87,6 +92,7 @@ function Landing() {
           </div>
         </div>
       </div>
+    </div>
   );
 }
 
