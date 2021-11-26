@@ -24,17 +24,20 @@ function MiniCard(props) {
         className={isFavorite ? "isFavorite" : "notFavorite"}
         onClick={handleClickFavorite}
       ></div>
-      
+
       <img
         src={props.event.images[0].url}
         alt=""
         width="100%"
         height="110px"
+        className="img-card"
       />
 
-      <div className="mini-card-title">{props.event.name.substring(0,18)}</div>
+      <div className="mini-card-title">{props.event.name.substring(0, 18)}</div>
       <hr className="mini-card-separator" />
-      <div className="mini-card-date">date: {props.event.dates.start.localDate}</div>
+      <div className="mini-card-date">
+        date: {props.event.dates.start.localDate}
+      </div>
       <button className="mini-card-button">More Details</button>
     </div>
   );
