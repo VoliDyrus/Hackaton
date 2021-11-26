@@ -12,7 +12,7 @@ function BigCard() {
   const country = params.country;
   const currentId = params.id;
 
-  const [currentEvent, setCurrentEvent] = useState([]);
+  const [currentEvent, setCurrentEvent] = useState("");
 
   async function updateInfo(selectedCountry, eventId) {
     let twoLettersCode = countriesCode.find(
@@ -39,27 +39,36 @@ function BigCard() {
           <img src={arrow} alt="back-button" width="20px" />
         </NavLink>
       </button>
-      <div className="card-name">{currentEvent.name}</div>
-      <div className="card-image"></div>
-      <img src={currentEvent.images[0].url} alt="" width="500" height="300" />
-      <div className="card-locale">
-        {currentEvent._embedded.venues[0].address.line1} <br />
-        {currentEvent._embedded.venues[0].address.line2 || " "}
-        <br />
-      </div>
-      <div className="card-time">
-        Date:{currentEvent.dates.start.localDate} <br />
-        Time: {currentEvent.dates.start.localTime}
-      </div>
-      <p>{currentEvent.info}</p>
-      <p>{currentEvent.dates.status.code}</p>
-      <p>
-        Tickets on sale from {currentEvent.sales.public.startDateTime} until{" "}
-        {currentEvent.sales.public.endDateTime}.
-      </p>
-      <button>
-        <a href={currentEvent.url}>Get your tickets!</a>
-      </button>
+      {currentEvent && (
+        <>
+          <div className="card-name">{currentEvent.name}</div>
+          <div className="card-image"></div>
+          <img
+            src={currentEvent.images[0].url}
+            alt=""
+            width="500"
+            height="300"
+          />
+          <div className="card-locale">
+            {currentEvent._embedded.venues[0].address.line1} <br />
+            {currentEvent._embedded.venues[0].address.line2 || " "}
+            <br />
+          </div>
+          <div className="card-time">
+            Date:{currentEvent.dates.start.localDate} <br />
+            Time: {currentEvent.dates.start.localTime}
+          </div>
+          <p>{currentEvent.info}</p>
+          <p>{currentEvent.dates.status.code}</p>
+          <p>
+            Tickets on sale from {currentEvent.sales.public.startDateTime} until{" "}
+            {currentEvent.sales.public.endDateTime}.
+          </p>
+          <button>
+            <a href={currentEvent.url}>Get your tickets!</a>
+          </button>
+        </>
+      )}
     </div>
   );
 }
