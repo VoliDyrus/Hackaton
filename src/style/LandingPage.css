@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
 .isFavorite {
   width: 40px;
   height: 40px;
-  background-image: url(../images/star-yellow.png);
+  background-image: url(../images/star.png);
   background-size: 100%;
   align-self: flex-start;
 }
@@ -21,14 +21,19 @@
 }
 
 .container-main {
-  background-image: linear-gradient(to right, #e7f6f8, #ceecf3, #b6e2ef, #9fd7ed, #88cbec);
- }
-
-
+  background-image: linear-gradient(
+    to right,
+    #e7f6f8,
+    #ceecf3,
+    #b6e2ef,
+    #9fd7ed,
+    #88cbec
+  );
+}
 
 .container-top {
   width: 100%;
-  height: 12%;
+  height: 15%;
   display: flex;
   justify-content: space-between;
   position: fixed !important;
@@ -42,6 +47,8 @@
   );
   background-size: 200% 200%;
   animation: gradient 20s ease infinite;
+  -webkit-box-shadow: -2px 7px 15px 0px #000000;
+  box-shadow: -2px -6px 13px 0px #000000;
 }
 
 @keyframes gradient {
@@ -143,37 +150,46 @@ p {
 }
 
 .search-ul {
-  background-image: linear-gradient(to right, #e7f6f8, #ceecf3, #b6e2ef, #9fd7ed, #88cbec);
+  background-image: linear-gradient(
+    to right,
+    #e7f6f8,
+    #ceecf3,
+    #b6e2ef,
+    #9fd7ed,
+    #88cbec
+  );
 }
 
 .div-img {
   border-radius: 20px;
 }
-.page-display{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width:100vw;
-    height: 100vh;
-    background: rgb(98, 177, 206);
-        background: linear-gradient(
-          to right,
-          rgba(17, 153, 173, 1) 0%,
-          rgb(197, 131, 163) 83%
-        );
+.img-card {
+  border-top-right-radius: 80px;
 }
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
+.page-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(98, 177, 206);
+  background: linear-gradient(
+    to right,
+    rgba(17, 153, 173, 1) 0%,
+    rgb(197, 131, 163) 83%
+  );
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 #country-selected {
   text-decoration: underline;
@@ -192,9 +208,9 @@ p {
     to right,
     rgba(17, 153, 173, 1) 0%,
     rgba(170, 32, 98, 1) 83%
-    );
-    background-size: 400% 400%;
-    animation: gradient 20s ease infinite;
+  );
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
 }
 
 @keyframes gradient {
@@ -209,11 +225,11 @@ p {
   }
 }
 
-.first-container{
+.first-container {
   display: none;
 }
 
-.second-container{
+.second-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -245,27 +261,27 @@ p {
   margin-bottom: 10px;
 }
 
-.img-bg{
-    display:none;
+.img-bg {
+  display: none;
 }
 
-.btn-container{
-  max-width:500px;
+.btn-container {
+  max-width: 500px;
   min-width: 250px;
-  box-shadow:inset 0px 3px 10px -13px #ffffff;
-	background:linear-gradient(to bottom, #f0e7e7 5%, #f6f6f6 100%);
-	background-color:#f0e7e7;
-	border-radius:17px;
-	border:2px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Georgia;
-	font-size:14px;
-	font-weight:bold;
-	padding:10px 29px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+  box-shadow: inset 0px 3px 10px -13px #ffffff;
+  background: linear-gradient(to bottom, #f0e7e7 5%, #f6f6f6 100%);
+  background-color: #f0e7e7;
+  border-radius: 17px;
+  border: 2px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  font-family: Georgia;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 29px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
 }
 
 .btn-container:hover {
@@ -279,7 +295,7 @@ p {
 
 /*---------- Social Media Icons: CSS -------------*/
 
-.social-media{
+.social-media {
   position: fixed;
   bottom: 40px;
 }
@@ -315,12 +331,12 @@ p {
 .wrapper .button:nth-child(1):hover .icon {
   background: #4267b2;
 }
-  
+
 .wrapper .button:nth-child(2):hover .icon {
-background: #e1306c;
+  background: #e1306c;
 }
 .wrapper .button:nth-child(3):hover .icon {
-background: #333;
+  background: #333;
 }
 
 .wrapper .button .icon i {
@@ -355,22 +371,22 @@ background: #333;
 @media screen and (min-width: 450px) {
   .page-display {
     flex-direction: row;
-    width:100vw;
+    width: 100vw;
   }
 
-  .first-container{
+  .first-container {
     display: flex;
     height: 100%;
-    z-index:0;
+    z-index: 0;
     width: calc(100vw - 450px);
     background-image: url("../images/bg-image3.jpg");
     background-size: cover;
-    opacity:0.7;
+    opacity: 0.7;
   }
 
-  .second-container{
-    float:right;
-    width:450px;
+  .second-container {
+    float: right;
+    width: 450px;
     height: 100vh;
     justify-content: center;
     z-index: 5;
@@ -382,34 +398,33 @@ background: #333;
     );
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
-    }
+  }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
     }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
-    .first-container-text{
-      position: absolute;
-      background-color: black;
-      opacity: 1;
-      bottom: 10%;
-      padding-left: 35px;
-      padding: 15px 15px;
-      color: white;
-      z-index:5;
-    }
+  .first-container-text {
+    position: absolute;
+    background-color: black;
+    opacity: 1;
+    bottom: 10%;
+    padding-left: 35px;
+    padding: 15px 15px;
+    color: white;
+    z-index: 5;
+  }
 
-    .paragraph-firstcontainer{
-      font-size: 18px;
-      padding:5px;
-    }
-    
+  .paragraph-firstcontainer {
+    font-size: 18px;
+    padding: 5px;
+  }
 }

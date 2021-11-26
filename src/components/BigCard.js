@@ -1,48 +1,74 @@
-import React from "react";
 import React, { useState, useContext } from "react";
-import FavoriteContext from "../contexts/FavoriteContext";
-function BigCard(props) {
-  const [isFavorite, setIsFavorite] = useState(props.isFavorite);
-  const { isFavoriteList, addFavorite, removeFavorite } =
-    useContext(FavoriteContext);
-  const currentlyFavorite = isFavoriteList(props.event.id);
+import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
 
-  const handleClickFavorite = () => {
-    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
-    if (currentlyFavorite) {
-      removeFavorite(props.event.id);
-    } else {
-      addFavorite(props.event.id, props.event);
-    }
-  };
+import arrow from "../images/arrow.png";
+import { useEffect } from "react/cjs/react.development";
+import { countriesCode } from "../data/countriesData";
+
+function BigCard() {
+  const params = useParams();
+  const country = params.country;
+  const currentId = params.id;
+
+  const [currentEvent, setCurrentEvent] = useState("");
+
+  async function updateInfo(selectedCountry, eventId) {
+    let twoLettersCode = countriesCode.find(
+      (country) => country.name === selectedCountry
+    );
+    twoLettersCode = twoLettersCode.code;
+    const response = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    const data = await response.data;
+    setCurrentEvent(data);
+  }
+
+  useEffect(() => {
+    updateInfo(country, currentId);
+  }, []);
+
+  console.log(currentEvent);
   return (
     <div>
-      <div
-        id="favorite"
-        className={isFavorite ? "isFavorite" : "notFavorite"}
-        onClick={handleClickFavorite}
-      ></div>
-      <div className="card-name">{props.event.name}</div>
-      <div className="card-image"></div>
-      <img src={props.event.images[0].url} alt="" width="500" height="300" />
-      <div className="card-locale">
-        {props.event._embedded.venues[0].address.line1} <br />
-        {props.event._embedded.venues[0].address.line2}
-        <br />
-      </div>
-      <div className="card-time">
-        Date:{props.event.dates.start.localDate} <br />
-        Time: {props.event.dates.start.localTime}
-      </div>
-      <p>{props.event.info}</p>
-      <p>{props.event.dates.status.code}</p>
-      <p>
-        Tickets on sale from {props.event.sales.public.startDateTime} until{" "}
-        {props.event.sales.public.endDateTime}.
-      </p>
-      <button>
-        <a href={props.event.url}>Get your tickets!</a>
+      Hello Big Card
+      <button className="back-button">
+        <NavLink to={`/welcome/${country}`}>
+          <img src={arrow} alt="back-button" width="20px" />
+        </NavLink>
       </button>
+      {currentEvent && (
+        <>
+          <div className="card-name">{currentEvent.name}</div>
+          <div className="card-image"></div>
+          <img
+            src={currentEvent.images[0].url}
+            alt=""
+            width="500"
+            height="300"
+          />
+          <div className="card-locale">
+            {currentEvent._embedded.venues[0].address.line1} <br />
+            {currentEvent._embedded.venues[0].address.line2 || " "}
+            <br />
+          </div>
+          <div className="card-time">
+            Date:{currentEvent.dates.start.localDate} <br />
+            Time: {currentEvent.dates.start.localTime}
+          </div>
+          <p>{currentEvent.info}</p>
+          <p>{currentEvent.dates.status.code}</p>
+          <p>
+            Tickets on sale from {currentEvent.sales.public.startDateTime} until{" "}
+            {currentEvent.sales.public.endDateTime}.
+          </p>
+          <button>
+            <a href={currentEvent.url}>Get your tickets!</a>
+          </button>
+        </>
+      )}
     </div>
   );
 }
