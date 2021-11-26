@@ -21,6 +21,9 @@ body {
 }
 
 .favourites-tab {
+  position: relative;
+  right: 5%;
+  top: 15%;
 }
 
 .container-top {
